@@ -1,4 +1,5 @@
 using DG.Tweening;
+using UI.Overlay.Signals;
 using UnityEngine;
 using Zenject;
 
@@ -7,22 +8,18 @@ namespace UI.Helpers
     public abstract class UIController : MonoBehaviour
     {
         [Inject] protected SignalBus _signalBus;
-
-        private DOTweenAnimation _animation;
-
-        protected virtual void Awake()
-        {
-            _animation = GetComponent<DOTweenAnimation>();
-        }
+        [SerializeField] private DOTweenAnimation _animation;
 
         public virtual void Open()
         {
-            _animation.DOPlay();
+            _animation.DORestart();
+            _signalBus.Fire<OpenUIControllerSignal>();
         }
 
         public virtual void Close()
         {
             _animation.DOPlayBackwards();
+            _signalBus.Fire<CloseUIControllerSignal>();
         }
     }
 }

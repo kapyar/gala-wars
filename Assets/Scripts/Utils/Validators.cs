@@ -4,12 +4,7 @@ namespace Utils
     {
         public static bool ValidateName(string name)
         {
-            if (string.IsNullOrEmpty(name))
-            {
-                return false;
-            }
-
-            return true;
+            return !string.IsNullOrEmpty(name);
         }
     }
 }

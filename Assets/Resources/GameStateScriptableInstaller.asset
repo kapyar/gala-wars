@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameStateDto:
     PlayerDto:
-      Speed: 0
+      Speed: 2

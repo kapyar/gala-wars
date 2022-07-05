@@ -1,3 +1,6 @@
+using Player;
+using Services.Files;
+using UI.Overlay;
 using Zenject;
 
 public class ProjectInstaller : MonoInstaller<ProjectInstaller>
@@ -7,5 +10,10 @@ public class ProjectInstaller : MonoInstaller<ProjectInstaller>
         SignalBusInstaller.Install(Container);
 
         EnterNameUIInstaller.Install(Container);
+        OverlayUIInstaller.Install(Container);
+
+        PlayerInstaller.Install(Container);
+
+        Container.Bind<IFileService>().To<FileService>().AsSingle();
     }
 }

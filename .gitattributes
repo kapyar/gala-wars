@@ -1,0 +1,4 @@
+*.zip filter=lfs diff=lfs merge=lfs -text
+Assets/SCI-FI[[:space:]]UI[[:space:]]Pack[[:space:]]Pro/SCI-FI[[:space:]]UI[[:space:]]Pack_V1[[:space:]]Pro(Blue)/SourceFiles/SciFiPro_BluePsd.zip filter=lfs diff=lfs merge=lfs -text
+Assets/SCI-FI[[:space:]]UI[[:space:]]Pack[[:space:]]Pro/SCI-FI[[:space:]]UI[[:space:]]Pack_V2[[:space:]]Pro(Cyan)/SourceFiles/SciFiPro_CyanPsd.zip' filter=lfs diff=lfs merge=lfs -text
+Assets/SCI-FI[[:space:]]UI[[:space:]]Pack[[:space:]]Pro/SCI-FI[[:space:]]UI[[:space:]]Pack_V2[[:space:]]Pro(Cyan)/SourceFiles/SciFiPro_CyanPsd.zip filter=lfs diff=lfs merge=lfs -text

@@ -7,8 +7,7 @@ using Utils;
 public class EnterNameUIController : UIController
 {
     [SerializeField] private InputField _inputField;
-    [SerializeField] private Text _errorField;
-
+    [SerializeField] private Button _confirmBtn;
 
     public void OnSubmitName()
     {
@@ -22,5 +21,12 @@ public class EnterNameUIController : UIController
         };
 
         _signalBus.Fire(signal);
+
+        Close();
+    }
+
+    public void OnValidate()
+    {
+        _confirmBtn.interactable = _inputField.text.Length > 2;
     }
 }
