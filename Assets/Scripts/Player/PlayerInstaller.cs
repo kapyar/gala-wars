@@ -1,4 +1,5 @@
 using Player.Boosters.Signals;
+using Player.Signals;
 using Zenject;
 
 namespace Player
@@ -10,6 +11,7 @@ namespace Player
             Container.DeclareSignal<BoosterExpiredSignal>();
             Container.DeclareSignal<PlayerEarnBooster>();
             Container.DeclareSignal<PlayerEarnCurrencySignal>();
+            Container.DeclareSignal<SetInitialCurrencySignal>();
 
             Container.Bind<PlayerStateController>().AsSingle().NonLazy();
         }

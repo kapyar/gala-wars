@@ -1,4 +1,5 @@
 using Player;
+using UI.EnterNameController.Signals;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +13,16 @@ namespace UI.Tester
         public void AddCoins()
         {
             _playerStateController.AddCoins();
+        }
+
+        public void AddExp()
+        {
+            _playerStateController.AddExp();
+        }
+
+        public void OpenEnterName()
+        {
+            _signalBus.Fire<OpenEnterNameWindowSignal>();
         }
     }
 }

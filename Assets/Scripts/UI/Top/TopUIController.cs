@@ -1,6 +1,7 @@
 using System;
 using Currency;
 using DG.Tweening;
+using Player;
 using Player.Boosters.Signals;
 using TMPro;
 using UnityEngine;
@@ -17,10 +18,19 @@ namespace UI.Top
         [SerializeField] private TextMeshProUGUI _experienceAmount;
 
         [Inject] private SignalBus _signalBus;
+        [Inject] private PlayerStateController _playerStateController;
 
         private void Start()
         {
+            _coinsAmount.text = _playerStateController.CoinsBank.Amount.ToString();
+            _experienceAmount.text = _playerStateController.ExperienceBank.Amount.ToString();
+
             _signalBus.Subscribe<PlayerEarnCurrencySignal>(OnPlayerBalanceChanged);
+        }
+
+        private void OnDestroy()
+        {
+            _signalBus.Unsubscribe<PlayerEarnCurrencySignal>(OnPlayerBalanceChanged);
         }
 
         private void OnPlayerBalanceChanged(PlayerEarnCurrencySignal signal)

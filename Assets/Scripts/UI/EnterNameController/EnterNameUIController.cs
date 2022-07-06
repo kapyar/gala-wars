@@ -3,11 +3,19 @@ using UI.Helpers;
 using UnityEngine;
 using UnityEngine.UI;
 using Utils;
+using Zenject;
 
 public class EnterNameUIController : UIController
 {
     [SerializeField] private InputField _inputField;
     [SerializeField] private Button _confirmBtn;
+
+    [Inject] private SignalBus _signalBus;
+
+    private void Start()
+    {
+        _signalBus.Subscribe<OpenEnterNameWindowSignal>(Open);
+    }
 
     public void OnSubmitName()
     {

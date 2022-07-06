@@ -3,6 +3,8 @@ using Currency;
 using Player.Boosters.Signals;
 using Services;
 using Services.Files;
+using UI.EnterNameController.Signals;
+using UnityEngine;
 using Zenject;
 
 namespace Player
@@ -13,20 +15,32 @@ namespace Player
 
         private readonly SignalBus _signalBus;
 
-        private readonly CurrencyData _coinsBank;
-        private readonly CurrencyData _experienceBank;
+        public CurrencyData CoinsBank { get; private set; }
+
+        public CurrencyData ExperienceBank { get; private set; }
 
         public PlayerStateController(IFileService fileService, SignalBus signalBus) : base(fileService)
         {
             _signalBus = signalBus;
 
             LoadData();
+            InitBank();
 
-            _coinsBank = _data.Bank.FirstOrDefault(x => x.Type == CurrencyType.Coins);
-            _coinsBank.OnAmountChanged += OnCoinBalanceChanged;
+            _signalBus.Subscribe<SubmitNameSignal>(OnNameSubmitted);
+        }
 
-            _experienceBank = _data.Bank.FirstOrDefault(x => x.Type == CurrencyType.Experience);
-            _experienceBank.OnAmountChanged += OnExperienceBalanceChanged;
+        private void OnNameSubmitted(SubmitNameSignal signal)
+        {
+            _data.Name = signal.Name;
+        }
+
+        private void InitBank()
+        {
+            CoinsBank = _data.Bank.FirstOrDefault(x => x.Type == CurrencyType.Coins);
+            CoinsBank.OnAmountChanged += OnCoinBalanceChanged;
+
+            ExperienceBank = _data.Bank.FirstOrDefault(x => x.Type == CurrencyType.Experience);
+            ExperienceBank.OnAmountChanged += OnExperienceBalanceChanged;
         }
 
 
@@ -34,7 +48,12 @@ namespace Player
 
         public void AddCoins()
         {
-            _coinsBank.Amount += 100;
+            CoinsBank.Amount += Random.Range(1, 5);
+        }
+
+        public void AddExp()
+        {
+            ExperienceBank.Amount += Random.Range(100, 1500);
         }
 
         #endregion
