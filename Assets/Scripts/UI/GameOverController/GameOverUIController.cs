@@ -29,6 +29,7 @@ namespace UI.GameOverController
             base.Open();
 
             AnimateHighestScore();
+            AnimateYourScore();
         }
 
         private void AnimateHighestScore()
