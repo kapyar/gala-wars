@@ -17,9 +17,9 @@ namespace Player
 
 
         private readonly SignalBus _signalBus;
-        private MutableCurrencyData CoinsBank { get; set; }
+        private MutableCurrencyData _coinsBank;
 
-        private MutableCurrencyData ExperienceBank { get; set; }
+        private MutableCurrencyData _experienceBank;
 
 
         public PlayerStateController(IFileService fileService, SignalBus signalBus) : base(fileService)
@@ -35,9 +35,9 @@ namespace Player
 
         private void OnSaveData(SaveDataSignal signal)
         {
-            if (_data.HighScore < ExperienceBank.Amount)
+            if (_data.HighScore < _experienceBank.Amount)
             {
-                _data.SetHighScore(ExperienceBank.Amount);
+                _data.SetHighScore(_experienceBank.Amount);
             }
 
             SaveData();
@@ -50,11 +50,11 @@ namespace Player
 
         private void InitBank()
         {
-            CoinsBank = _data.Bank.FirstOrDefault(x => x.Id == CurrencyType.Coins);
-            CoinsBank.OnAmountChanged += OnCoinBalanceChanged;
+            _coinsBank = _data.Bank.FirstOrDefault(x => x.Id == CurrencyType.Coins);
+            _coinsBank.OnAmountChanged += OnCoinBalanceChanged;
 
-            ExperienceBank = _data.Bank.FirstOrDefault(x => x.Id == CurrencyType.Experience);
-            ExperienceBank.OnAmountChanged += OnExperienceBalanceChanged;
+            _experienceBank = _data.Bank.FirstOrDefault(x => x.Id == CurrencyType.Experience);
+            _experienceBank.OnAmountChanged += OnExperienceBalanceChanged;
         }
 
 
@@ -62,12 +62,12 @@ namespace Player
 
         public void AddCoins()
         {
-            CoinsBank.SetAmount(CoinsBank.Amount + Random.Range(1, 5));
+            _coinsBank.SetAmount(_coinsBank.Amount + Random.Range(1, 5));
         }
 
         public void AddExp()
         {
-            ExperienceBank.SetAmount(ExperienceBank.Amount + Random.Range(100, 1500));
+            _experienceBank.SetAmount(_experienceBank.Amount + Random.Range(100, 1500));
         }
 
         #endregion

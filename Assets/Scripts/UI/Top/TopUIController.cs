@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Currency;
 using DG.Tweening;
 using Player;
@@ -22,8 +23,11 @@ namespace UI.Top
 
         private void Start()
         {
-            _coinsAmount.text = _playerStateController.CoinsBank.Amount.ToString();
-            _experienceAmount.text = _playerStateController.ExperienceBank.Amount.ToString();
+            _coinsAmount.text = _playerStateController.PlayerData.Bank
+                .FirstOrDefault(x => x.Id == CurrencyType.Coins)?.Amount.ToString();
+
+            _experienceAmount.text = _playerStateController.PlayerData.Bank
+                .FirstOrDefault(x => x.Id == CurrencyType.Experience)?.Amount.ToString();
 
             _signalBus.Subscribe<PlayerEarnCurrencySignal>(OnPlayerBalanceChanged);
         }
