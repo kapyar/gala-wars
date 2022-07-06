@@ -1,11 +1,11 @@
 using System;
 using System.Linq;
 using Currency;
-using DG.Tweening;
 using Player;
 using Player.Boosters.Signals;
 using TMPro;
 using UnityEngine;
+using Utils;
 using Zenject;
 
 namespace UI.Top
@@ -54,25 +54,12 @@ namespace UI.Top
 
         private void HandleExperience(PlayerEarnCurrencySignal signal)
         {
-            DOTween.To(() => double.Parse(_experienceAmount.text),
-                x => { _experienceAmount.text = x.ToString("N0"); },
-                signal.Amount, GetCoinTweenDuration(0, signal.Amount)
-            );
+            UIUtils.AnimateLabelWithNumber(_experienceAmount, signal.Amount);
         }
 
         private void HandleCoins(PlayerEarnCurrencySignal signal)
         {
-            DOTween.To(() => double.Parse(_coinsAmount.text),
-                x => { _coinsAmount.text = x.ToString("N0"); },
-                signal.Amount, GetCoinTweenDuration(0, signal.Amount)
-            );
-        }
-
-        private float GetCoinTweenDuration(int from, int to)
-        {
-            var duration = Mathf.Abs(to - from) / CoinsSpeed;
-            duration = Mathf.Clamp01(duration);
-            return duration;
+            UIUtils.AnimateLabelWithNumber(_coinsAmount, signal.Amount);
         }
     }
 }

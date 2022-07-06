@@ -8,7 +8,7 @@ namespace UI.Helpers
     public abstract class UIController : MonoBehaviour
     {
         [Inject] protected SignalBus _signalBus;
-        [SerializeField] private DOTweenAnimation _animation;
+        [SerializeField] protected DOTweenAnimation _animation;
 
         public virtual void Open()
         {

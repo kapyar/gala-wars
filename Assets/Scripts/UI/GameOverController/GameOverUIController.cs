@@ -4,6 +4,7 @@ using TMPro;
 using UI.GameOverController.Signals;
 using UI.Helpers;
 using UnityEngine;
+using Utils;
 using Zenject;
 
 namespace UI.GameOverController
@@ -25,7 +26,14 @@ namespace UI.GameOverController
         {
             base.Open();
 
-            _highestScore.text = _playerStateController.PlayerData.HighScore.ToString();
+            AnimateHighestScore();
+        }
+
+        private void AnimateHighestScore()
+        {
+            var score = _playerStateController.PlayerData.HighScore;
+
+            UIUtils.AnimateLabelWithNumber(_highestScore, score);
         }
 
 
