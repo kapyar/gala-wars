@@ -1,3 +1,5 @@
+using System.Linq;
+using Currency;
 using Player;
 using Player.Signals;
 using TMPro;
@@ -34,6 +36,13 @@ namespace UI.GameOverController
             var score = _playerStateController.PlayerData.HighScore;
 
             UIUtils.AnimateLabelWithNumber(_highestScore, score);
+        }
+
+        private void AnimateYourScore()
+        {
+            var score = _playerStateController.PlayerData.Bank.FirstOrDefault(x => x.Id == CurrencyType.Experience).Amount;
+
+            UIUtils.AnimateLabelWithNumber(_currentScore, score);
         }
 
 
