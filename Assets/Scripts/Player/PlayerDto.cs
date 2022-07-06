@@ -7,9 +7,8 @@ namespace Player
     [Serializable]
     public class PlayerDto
     {
-        public float Name;
-        public List<CurrencyDto> Bank;
-
+        public string Name;
         public int HighScore;
+        public List<CurrencyDto> Bank = new List<CurrencyDto>();
     }
 }

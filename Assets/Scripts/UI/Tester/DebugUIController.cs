@@ -1,5 +1,4 @@
-using Currency;
-using Player.Boosters.Signals;
+using Player;
 using UnityEngine;
 using Zenject;
 
@@ -8,14 +7,11 @@ namespace UI.Tester
     public class DebugUIController : MonoBehaviour
     {
         [Inject] private SignalBus _signalBus;
+        [Inject] private PlayerStateController _playerStateController;
 
         public void AddCoins()
         {
-            var signal = new PlayerEarnCurrencySignal
-            {
-                Type = CurrencyType.Coins,
-                Amount = 100
-            };
+            _playerStateController.AddCoins();
         }
     }
 }

@@ -1,22 +1,22 @@
 using System;
-using System.Globalization;
 using Currency;
 using DG.Tweening;
 using Player.Boosters.Signals;
-using UI.Helpers;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using Zenject;
 
 namespace UI.Top
 {
-    public class TopUIController : UIController
+    public class TopUIController : MonoBehaviour
     {
-        [SerializeField] private BoosterUIController _boosterUIController;
-
-        [SerializeField] private Text _coinsAmount;
-        [SerializeField] private Text _experienceAmount;
-
         private const float CoinsSpeed = 10;
+
+        [SerializeField] private BoosterUIController _boosterUIController;
+        [SerializeField] private TextMeshProUGUI _coinsAmount;
+        [SerializeField] private TextMeshProUGUI _experienceAmount;
+
+        [Inject] private SignalBus _signalBus;
 
         private void Start()
         {
@@ -40,13 +40,16 @@ namespace UI.Top
 
         private void HandleExperience(PlayerEarnCurrencySignal signal)
         {
-            throw new NotImplementedException();
+            DOTween.To(() => double.Parse(_experienceAmount.text),
+                x => { _experienceAmount.text = x.ToString("N0"); },
+                signal.Amount, GetCoinTweenDuration(0, signal.Amount)
+            );
         }
 
         private void HandleCoins(PlayerEarnCurrencySignal signal)
         {
             DOTween.To(() => double.Parse(_coinsAmount.text),
-                x => { _coinsAmount.text = x.ToString(CultureInfo.InvariantCulture); },
+                x => { _coinsAmount.text = x.ToString("N0"); },
                 signal.Amount, GetCoinTweenDuration(0, signal.Amount)
             );
         }

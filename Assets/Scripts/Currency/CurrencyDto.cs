@@ -5,7 +5,7 @@ namespace Currency
     [Serializable]
     public class CurrencyDto
     {
-        public int Id;
-        public int Amount;
+        protected CurrencyType _type;
+        protected int _amount;
     }
 }

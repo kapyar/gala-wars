@@ -2,7 +2,7 @@ namespace Currency
 {
     public enum CurrencyType
     {
-        Coins,
-        Experience
+        Coins = 0,
+        Experience = 1
     }
 }
