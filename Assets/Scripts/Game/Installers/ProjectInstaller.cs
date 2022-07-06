@@ -1,5 +1,6 @@
 using Player;
 using Services.Files;
+using UI.GameOverController;
 using UI.Overlay;
 using Zenject;
 
@@ -11,6 +12,7 @@ public class ProjectInstaller : MonoInstaller<ProjectInstaller>
 
         EnterNameUIInstaller.Install(Container);
         OverlayUIInstaller.Install(Container);
+        GameOverUIInstaller.Install(Container);
 
         PlayerInstaller.Install(Container);
 

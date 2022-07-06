@@ -11,7 +11,9 @@ namespace Player
             Container.DeclareSignal<BoosterExpiredSignal>();
             Container.DeclareSignal<PlayerEarnBooster>();
             Container.DeclareSignal<PlayerEarnCurrencySignal>();
+
             Container.DeclareSignal<SetInitialCurrencySignal>();
+            Container.DeclareSignal<SaveDataSignal>();
 
             Container.Bind<PlayerStateController>().AsSingle().NonLazy();
         }

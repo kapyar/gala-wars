@@ -1,4 +1,5 @@
 using Player;
+using Player.Signals;
 using UI.EnterNameController.Signals;
 using UnityEngine;
 using Zenject;
@@ -23,6 +24,11 @@ namespace UI.Tester
         public void OpenEnterName()
         {
             _signalBus.Fire<OpenEnterNameWindowSignal>();
+        }
+
+        public void SaveGame()
+        {
+            _signalBus.Fire<SaveDataSignal>();
         }
     }
 }

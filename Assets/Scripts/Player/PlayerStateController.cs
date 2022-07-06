@@ -1,6 +1,7 @@
 using System.Linq;
 using Currency;
 using Player.Boosters.Signals;
+using Player.Signals;
 using Services;
 using Services.Files;
 using UI.EnterNameController.Signals;
@@ -9,15 +10,17 @@ using Zenject;
 
 namespace Player
 {
-    public class PlayerStateController : AbstractSerializableController<PlayerData>
+    public class PlayerStateController : AbstractSerializableController<MutablePlayerData>
     {
+        public ReadOnlyPlayerData PlayerData => _data;
         protected override string Filename => "player_data";
 
+
         private readonly SignalBus _signalBus;
+        private MutableCurrencyData CoinsBank { get; set; }
 
-        public CurrencyData CoinsBank { get; private set; }
+        private MutableCurrencyData ExperienceBank { get; set; }
 
-        public CurrencyData ExperienceBank { get; private set; }
 
         public PlayerStateController(IFileService fileService, SignalBus signalBus) : base(fileService)
         {
@@ -27,19 +30,30 @@ namespace Player
             InitBank();
 
             _signalBus.Subscribe<SubmitNameSignal>(OnNameSubmitted);
+            _signalBus.Subscribe<SaveDataSignal>(OnSaveData);
+        }
+
+        private void OnSaveData(SaveDataSignal signal)
+        {
+            if (_data.HighScore < ExperienceBank.Amount)
+            {
+                _data.SetHighScore(ExperienceBank.Amount);
+            }
+
+            SaveData();
         }
 
         private void OnNameSubmitted(SubmitNameSignal signal)
         {
-            _data.Name = signal.Name;
+            _data.SetName(signal.Name);
         }
 
         private void InitBank()
         {
-            CoinsBank = _data.Bank.FirstOrDefault(x => x.Type == CurrencyType.Coins);
+            CoinsBank = _data.Bank.FirstOrDefault(x => x.Id == CurrencyType.Coins);
             CoinsBank.OnAmountChanged += OnCoinBalanceChanged;
 
-            ExperienceBank = _data.Bank.FirstOrDefault(x => x.Type == CurrencyType.Experience);
+            ExperienceBank = _data.Bank.FirstOrDefault(x => x.Id == CurrencyType.Experience);
             ExperienceBank.OnAmountChanged += OnExperienceBalanceChanged;
         }
 
@@ -48,12 +62,12 @@ namespace Player
 
         public void AddCoins()
         {
-            CoinsBank.Amount += Random.Range(1, 5);
+            CoinsBank.SetAmount(CoinsBank.Amount + Random.Range(1, 5));
         }
 
         public void AddExp()
         {
-            ExperienceBank.Amount += Random.Range(100, 1500);
+            ExperienceBank.SetAmount(ExperienceBank.Amount + Random.Range(100, 1500));
         }
 
         #endregion
@@ -61,27 +75,24 @@ namespace Player
 
         protected override void SetInitialValues()
         {
-            var dto = new PlayerDto
-            {
-                HighScore = 0
-            };
+            var dto = new MutablePlayerData();
+            dto.SetHighScore(0);
 
-            dto.Bank.Add(new CurrencyData
-            {
-                Type = CurrencyType.Coins,
-                Amount = 100
-            });
+            var coins = new MutableCurrencyData();
+            coins.SetAmount(123);
+            coins.SetId(CurrencyType.Coins);
 
-            dto.Bank.Add(new CurrencyData
-            {
-                Type = CurrencyType.Experience,
-                Amount = 200
-            });
+            dto.Bank.Add(coins);
 
-            var data = new PlayerData();
-            data.FromDto(dto);
-            _data = data;
+            var experience = new MutableCurrencyData();
+            experience.SetAmount(234);
+            experience.SetId(CurrencyType.Experience);
+
+            dto.Bank.Add(experience);
+
+            _data = dto;
         }
+
 
         private void OnExperienceBalanceChanged(int newAmount)
         {
