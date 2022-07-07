@@ -12,7 +12,7 @@ namespace Game.Player
         [SerializeField] private Rigidbody _rigidbody;
         public Rigidbody Rigidbody => _rigidbody;
 
-        [SerializeField] private Boundary _boundary;
+        private readonly Boundary _boundary = new Boundary();
         public Boundary Boundary => _boundary;
 
         [SerializeField] private float _tiltFactor;
@@ -30,6 +30,13 @@ namespace Game.Player
 
         private void Start()
         {
+            var bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+            _boundary.xMax = bounds.x;
+            _boundary.xMin = -bounds.x;
+
+            _boundary.yMax = bounds.y;
+            _boundary.yMin = -bounds.y;
+
             _signalBus.Subscribe<PlayerChangeJoystickSignal>(HandlePlayerMovement);
 
             _currentState = new PlayerMoveState();
