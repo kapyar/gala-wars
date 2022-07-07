@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92e4112e2a37a422b8b930565edb3eef, type: 3}
   m_Name: GameStateScriptableInstaller
   m_EditorClassIdentifier: 
-  _gameStateDto:
-    PlayerDto:
+  GameStateDto:
+    PlayerShipsDto:
+      Speed: 3
+    BulletsDto:
+    - Id: Simple
+      Speed: 1
+      Damage: 1
+    - Id: Bomb
       Speed: 2
+      Damage: 3
+    - Id: MachineGun
+      Speed: 3
+      Damage: 1

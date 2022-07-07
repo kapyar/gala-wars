@@ -5,10 +5,10 @@ using Zenject;
 [CreateAssetMenu(fileName = "GameStateScriptableInstaller", menuName = "Installers/GameStateScriptableInstaller")]
 public class GameStateScriptableInstaller : ScriptableObjectInstaller<GameStateScriptableInstaller>
 {
-    [SerializeField] private GameStateDto _gameStateDto;
+    public GameStateDto GameStateDto = new GameStateDto();
 
     public override void InstallBindings()
     {
-        Container.BindInstance(_gameStateDto);
+        Container.BindInstance(GameStateDto);
     }
 }

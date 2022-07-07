@@ -1,4 +1,5 @@
 using Player;
+using PlayerInput;
 using Services.Files;
 using UI.GameOverController;
 using UI.Overlay;
@@ -15,6 +16,7 @@ public class ProjectInstaller : MonoInstaller<ProjectInstaller>
         GameOverUIInstaller.Install(Container);
 
         PlayerInstaller.Install(Container);
+        PlayerInputInstaller.Install(Container);
 
         Container.Bind<IFileService>().To<FileService>().AsSingle();
     }
