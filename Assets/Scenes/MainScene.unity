@@ -2479,6 +2479,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373447015}
   m_CullTransparentMesh: 1
+--- !u!23 &1388305661 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4363052829793252978, guid: ee37ca1c49a5c45fa95f82d767832f38, type: 3}
+  m_PrefabInstance: {fileID: 4363052831178566287}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1489993470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,8 +2748,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620975439}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.908, z: 0}
-  m_LocalScale: {x: 11.797559, y: 11.797559, z: 11.797559}
+  m_LocalPosition: {x: -0.8955, y: 0.4197, z: 0}
+  m_LocalScale: {x: 16.09628, y: 17.57836, z: 11.797559}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3334,7 +3339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4363052829795153044, guid: ee37ca1c49a5c45fa95f82d767832f38, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.71
+      value: -2.81
       objectReference: {fileID: 0}
     - target: {fileID: 4363052829795153044, guid: ee37ca1c49a5c45fa95f82d767832f38, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3376,6 +3381,10 @@ PrefabInstance:
       propertyPath: _tiltFactor
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4363052829795282448, guid: ee37ca1c49a5c45fa95f82d767832f38, type: 3}
+      propertyPath: _meshRenderer
+      value: 
+      objectReference: {fileID: 1388305661}
     - target: {fileID: 4363052829795282448, guid: ee37ca1c49a5c45fa95f82d767832f38, type: 3}
       propertyPath: _boundary.xMax
       value: 2

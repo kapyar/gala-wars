@@ -1,9 +1,9 @@
 using Game.Player.States;
 using GameConfig;
-using PlayerInput;
 using PlayerInput.Signals;
 using UnityEngine;
 using Zenject;
+using Bounds = PlayerInput.Bounds;
 
 namespace Game.Player
 {
@@ -12,8 +12,9 @@ namespace Game.Player
         [SerializeField] private Rigidbody _rigidbody;
         public Rigidbody Rigidbody => _rigidbody;
 
-        private readonly Boundary _boundary = new Boundary();
-        public Boundary Boundary => _boundary;
+        [SerializeField] private MeshRenderer _meshRenderer;
+
+        public Bounds Bounds { get; private set; }
 
         [SerializeField] private float _tiltFactor;
         public float TiltFactor => _tiltFactor;
@@ -30,12 +31,7 @@ namespace Game.Player
 
         private void Start()
         {
-            var bounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-            _boundary.xMax = bounds.x;
-            _boundary.xMin = -bounds.x;
-
-            _boundary.yMax = bounds.y;
-            _boundary.yMin = -bounds.y;
+            Bounds = new Bounds(Camera.main, _meshRenderer);
 
             _signalBus.Subscribe<PlayerChangeJoystickSignal>(HandlePlayerMovement);
 

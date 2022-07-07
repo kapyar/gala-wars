@@ -15,8 +15,8 @@ namespace Game.Player.States
             context.Rigidbody.velocity = direction * context.GameStateDto.PlayerShipsDto.Speed;
 
             context.Rigidbody.position = new Vector3(
-                Mathf.Clamp(context.Rigidbody.position.x, context.Boundary.xMin, context.Boundary.xMax),
-                Mathf.Clamp(context.Rigidbody.position.y, context.Boundary.yMin, context.Boundary.yMax),
+                Mathf.Clamp(context.Rigidbody.position.x, context.Bounds.xMin, context.Bounds.xMax),
+                Mathf.Clamp(context.Rigidbody.position.y, context.Bounds.yMin, context.Bounds.yMax),
                 0
             );
 
