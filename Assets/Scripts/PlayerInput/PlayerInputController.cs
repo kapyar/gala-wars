@@ -15,12 +15,26 @@ namespace PlayerInput
         private Vector2 _lastJoystickPos;
         private Vector2 _movement;
 
+        [SerializeField] private bool IsKeyboard;
 
         private void FixedUpdate()
         {
-            if (!(Vector3.SqrMagnitude(_joystick.Direction - _lastJoystickPos) > Epsilon)) return;
-            _lastJoystickPos = _joystick.Direction;
+            if (IsKeyboard)
+            {
+                _lastJoystickPos = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            }
+            else
+            {
+                if (!(Vector2.SqrMagnitude(_joystick.Direction - _lastJoystickPos) > Epsilon)) return;
 
+                _lastJoystickPos = _joystick.Direction;
+            }
+
+            OnMovement();
+        }
+
+        private void OnMovement()
+        {
             var signal = new PlayerChangeJoystickSignal
             {
                 Direction = _lastJoystickPos
