@@ -14,7 +14,8 @@ namespace Game.Player.Combat
         public GunHolder GunHolder => _gunHolder;
 
 
-        private SignalBus _signalBus;
+        public SignalBus SignalBus { get; private set; }
+
         public PlayerStateController PlayerStateController { get; private set; }
         public GameStateController GameStateController { get; private set; }
         public PrefabsFactory PrefabsFactory { get; private set; }
@@ -25,7 +26,7 @@ namespace Game.Player.Combat
         public void Construct(SignalBus signalBus, PlayerStateController playerStateController,
             GameStateController gameStateController, PrefabsFactory prefabsFactory)
         {
-            _signalBus = signalBus;
+            SignalBus = signalBus;
             PlayerStateController = playerStateController;
             GameStateController = gameStateController;
             PrefabsFactory = prefabsFactory;
@@ -33,7 +34,7 @@ namespace Game.Player.Combat
 
         private void Start()
         {
-            _signalBus.Subscribe<PlayerPressShootBtnSignal>(OnPlayerPressShootBtn);
+            SignalBus.Subscribe<PlayerPressShootBtnSignal>(OnPlayerPressShootBtn);
 
             _currentState = new MachineGunCombatSystemState(this);
         }
@@ -45,7 +46,7 @@ namespace Game.Player.Combat
 
         private void OnDestroy()
         {
-            _signalBus.Unsubscribe<PlayerPressShootBtnSignal>(OnPlayerPressShootBtn);
+            SignalBus.Unsubscribe<PlayerPressShootBtnSignal>(OnPlayerPressShootBtn);
         }
 
         private void OnPlayerPressShootBtn(PlayerPressShootBtnSignal signal)

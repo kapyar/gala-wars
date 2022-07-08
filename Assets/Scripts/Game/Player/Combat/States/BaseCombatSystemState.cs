@@ -14,22 +14,23 @@ namespace Game.Player.Combat.States
         protected abstract CombatSystemType GetCombatSystemType();
         protected abstract void Shoot();
 
+        private BulletType _bulletType;
+
         protected void SpawnAtPos(GameObject go)
         {
-            var bulletID = _context.GameStateController.GetCombatSystemConfig(GetCombatSystemType()).BulletId;
-
             var bullet = GameObject.Instantiate(
-                _context.PrefabsFactory.GetBullet(bulletID),
+                _context.PrefabsFactory.GetBullet(_bulletType),
                 go.transform.position,
                 go.transform.rotation
             );
 
-            bullet.GetComponent<Mover>().Launch(_context.GameStateController.GetBulletConfig(bulletID).Speed);
+            bullet.GetComponent<Mover>().Launch(_context.GameStateController.GetBulletConfig(_bulletType).Speed);
         }
 
         public BaseCombatSystemState(PlayerCombatSystemContext context)
         {
             _context = context;
+            _bulletType = _context.GameStateController.GetCombatSystemConfig(GetCombatSystemType()).BulletId;
         }
 
         public virtual void EnterState()

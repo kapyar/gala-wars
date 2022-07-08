@@ -1,3 +1,5 @@
+using Game;
+using Game.Player.Combat;
 using GameConfig;
 using GameState.Prefabs;
 using Player;
@@ -19,6 +21,8 @@ public class ProjectInstaller : MonoInstaller<ProjectInstaller>
 
         PlayerInstaller.Install(Container);
         PlayerInputInstaller.Install(Container);
+
+        Container.BindInterfacesAndSelfTo<AudioController>().AsSingle().NonLazy();
 
         Container.Bind<IFileService>().To<FileService>().AsSingle();
         Container.Bind<GameStateController>().AsSingle().NonLazy();

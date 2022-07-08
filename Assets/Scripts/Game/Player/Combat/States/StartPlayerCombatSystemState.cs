@@ -11,8 +11,7 @@ namespace Game.Player.Combat.States
 
         protected override void Shoot()
         {
-            var pos = _context.GunHolder.Cannon;
-            SpawnAtPos(pos);
+            SpawnAtPos(_context.GunHolder.Cannon);
         }
 
         public StartPlayerCombatSystemState(PlayerCombatSystemContext context) : base(context)
