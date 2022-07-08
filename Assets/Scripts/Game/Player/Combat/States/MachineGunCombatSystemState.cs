@@ -14,14 +14,9 @@ namespace Game.Player.Combat.States
             throw new System.NotImplementedException();
         }
 
-        public override void EnterState(PlayerCombatSystemContext context)
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public override void Update(PlayerCombatSystemContext context)
+        public MachineGunCombatSystemState(PlayerCombatSystemContext context) : base(context)
         {
-            throw new System.NotImplementedException();
         }
     }
 }

@@ -33,7 +33,7 @@ MonoBehaviour:
       CoolDown: 0.6
     - Id: 1
       BulletId: 0
-      CoolDown: 1
+      CoolDown: 0.1
     - Id: 2
       BulletId: 1
       CoolDown: 1

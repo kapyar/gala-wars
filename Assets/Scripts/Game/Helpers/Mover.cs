@@ -6,14 +6,14 @@ namespace Game.Helpers
     {
         private Rigidbody _rigidbody;
 
-
-        [SerializeField] private float _speed;
-
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
+        }
 
-            _rigidbody.velocity = transform.forward * _speed;
+        public void Launch(float speed)
+        {
+            _rigidbody.velocity = transform.forward * speed;
         }
     }
 }

@@ -1,4 +1,5 @@
 using GameConfig;
+using GameState.Prefabs;
 using Player;
 using PlayerInput;
 using Services.Files;
@@ -21,5 +22,6 @@ public class ProjectInstaller : MonoInstaller<ProjectInstaller>
 
         Container.Bind<IFileService>().To<FileService>().AsSingle();
         Container.Bind<GameStateController>().AsSingle().NonLazy();
+        Container.Bind<PrefabsFactory>().AsSingle().NonLazy();
     }
 }
