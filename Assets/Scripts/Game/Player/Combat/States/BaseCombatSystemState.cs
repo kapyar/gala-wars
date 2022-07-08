@@ -1,3 +1,4 @@
+using Game.Helpers;
 using GameState;
 using UnityEngine;
 
@@ -8,16 +9,29 @@ namespace Game.Player.Combat.States
         protected bool _isCanShoot;
         protected float _coolDownLeft;
 
-        protected PlayerCombatSystemContext _context;
-        
+        protected readonly PlayerCombatSystemContext _context;
+
         protected abstract CombatSystemType GetCombatSystemType();
         protected abstract void Shoot();
+
+        protected void SpawnAtPos(GameObject go)
+        {
+            var bulletID = _context.GameStateController.GetCombatSystemConfig(GetCombatSystemType()).BulletId;
+
+            var bullet = GameObject.Instantiate(
+                _context.PrefabsFactory.GetBullet(bulletID),
+                go.transform.position,
+                go.transform.rotation
+            );
+
+            bullet.GetComponent<Mover>().Launch(_context.GameStateController.GetBulletConfig(bulletID).Speed);
+        }
 
         public BaseCombatSystemState(PlayerCombatSystemContext context)
         {
             _context = context;
         }
-        
+
         public virtual void EnterState()
         {
             if (!_isCanShoot) return;

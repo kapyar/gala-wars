@@ -6,14 +6,23 @@ namespace Game.Helpers
     {
         private Rigidbody _rigidbody;
 
-        private void Start()
+        private Rigidbody RG
         {
-            _rigidbody = GetComponent<Rigidbody>();
+            get
+            {
+                if (_rigidbody == null)
+                {
+                    _rigidbody = GetComponent<Rigidbody>();
+                }
+
+                return _rigidbody;
+            }
         }
+
 
         public void Launch(float speed)
         {
-            _rigidbody.velocity = transform.forward * speed;
+            RG.velocity = transform.forward * speed;
         }
     }
 }

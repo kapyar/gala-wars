@@ -11,7 +11,8 @@ namespace Game.Player.Combat.States
 
         protected override void Shoot()
         {
-            throw new System.NotImplementedException();
+            SpawnAtPos(_context.GunHolder.Left);
+            SpawnAtPos(_context.GunHolder.Right);
         }
 
 

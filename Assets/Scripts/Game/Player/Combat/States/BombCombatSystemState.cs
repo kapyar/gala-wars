@@ -1,4 +1,3 @@
-using System;
 using GameState;
 
 namespace Game.Player.Combat.States
@@ -12,7 +11,7 @@ namespace Game.Player.Combat.States
 
         protected override void Shoot()
         {
-            throw new NotImplementedException();
+            SpawnAtPos(_context.GunHolder.Cannon);
         }
 
         public BombCombatSystemState(PlayerCombatSystemContext context) : base(context)

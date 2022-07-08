@@ -35,7 +35,7 @@ namespace Game.Player.Combat
         {
             _signalBus.Subscribe<PlayerPressShootBtnSignal>(OnPlayerPressShootBtn);
 
-            _currentState = new StartPlayerCombatSystemState(this);
+            _currentState = new BombCombatSystemState(this);
         }
 
         private void Update()

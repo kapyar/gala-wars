@@ -19,13 +19,13 @@ MonoBehaviour:
       CombatSystemId: 
     BulletsDto:
     - Id: 0
-      Speed: 1
+      Speed: 10
       Damage: 1
     - Id: 1
-      Speed: 2
+      Speed: 7
       Damage: 3
     - Id: 2
-      Speed: 3
+      Speed: 15
       Damage: 1
     CombatSystemDto:
     - Id: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
       CoolDown: 0.6
     - Id: 1
       BulletId: 0
-      CoolDown: 0.1
+      CoolDown: 1
     - Id: 2
       BulletId: 1
       CoolDown: 1
