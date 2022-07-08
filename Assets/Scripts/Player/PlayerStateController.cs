@@ -1,6 +1,8 @@
 using System.Linq;
 using Currency;
+using GameState;
 using Player.Boosters.Signals;
+using Player.Data;
 using Player.Signals;
 using Services;
 using Services.Files;
@@ -18,7 +20,6 @@ namespace Player
 
         private readonly SignalBus _signalBus;
         private MutableCurrencyData _coinsBank;
-
         private MutableCurrencyData _experienceBank;
 
 
@@ -77,6 +78,9 @@ namespace Player
         {
             var dto = new MutablePlayerData();
             dto.SetHighScore(0);
+
+            dto.SetCombatSystemId(CombatSystemType.StartPlayer);
+            dto.SetShipId("Eagle");
 
             var coins = new MutableCurrencyData();
             coins.SetAmount(123);

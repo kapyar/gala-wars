@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Currency;
+using GameState;
 using Newtonsoft.Json;
 
-namespace Player
+namespace Player.Data
 {
     [Serializable]
     public class MutablePlayerData : ReadOnlyPlayerData
@@ -18,6 +19,16 @@ namespace Player
         public void SetHighScore(int score)
         {
             HighScore = score;
+        }
+
+        public void SetShipId(string id)
+        {
+            ShipId = id;
+        }
+
+        public void SetCombatSystemId(CombatSystemType id)
+        {
+            CombatSystemID = (int)id;
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Player.States
+namespace Game.Player.Movement.States
 {
     public class PlayerMoveState : PlayerBaseState
     {
@@ -12,7 +12,7 @@ namespace Game.Player.States
         {
             var direction = Vector3.up * context.Direction.y + Vector3.right * context.Direction.x;
 
-            context.Rigidbody.velocity = direction * context.GameStateDto.PlayerShipsDto.Speed;
+            context.Rigidbody.velocity = direction * context.GameStateController.GetPlayerShipConfig().Speed;
 
             context.Rigidbody.position = new Vector3(
                 Mathf.Clamp(context.Rigidbody.position.x, context.Bounds.xMin, context.Bounds.xMax),

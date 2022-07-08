@@ -1,3 +1,4 @@
+using GameConfig;
 using Player;
 using PlayerInput;
 using Services.Files;
@@ -19,5 +20,6 @@ public class ProjectInstaller : MonoInstaller<ProjectInstaller>
         PlayerInputInstaller.Install(Container);
 
         Container.Bind<IFileService>().To<FileService>().AsSingle();
+        Container.Bind<GameStateController>().AsSingle().NonLazy();
     }
 }

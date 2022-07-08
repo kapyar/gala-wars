@@ -13,7 +13,6 @@ namespace PlayerInput
         [Inject] private SignalBus _signalBus;
 
         private Vector2 _lastJoystickPos;
-
         private Vector2 _movement;
 
 
@@ -30,14 +29,9 @@ namespace PlayerInput
             _signalBus.Fire(signal);
         }
 
-
-        private void OnReleaseShootButton(PlayerReleaseShootSignal obj)
+        public void OnPressShootButton()
         {
-        }
-
-        private void OnPressShootButton(PlayerPressShootSignal obj)
-        {
-            
+            _signalBus.Fire<PlayerPressShootBtnSignal>();
         }
     }
 }

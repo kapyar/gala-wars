@@ -6,7 +6,8 @@ namespace GameConfig
     [Serializable]
     public class GameStateDto
     {
-        public PlayerShipDto PlayerShipsDto = new PlayerShipDto();
+        public List<ShipDto> ShipsDto = new List<ShipDto>();
         public List<BulletDto> BulletsDto = new List<BulletDto>();
+        public List<CombatSystemDto> CombatSystemDto = new List<CombatSystemDto>();
     }
 }

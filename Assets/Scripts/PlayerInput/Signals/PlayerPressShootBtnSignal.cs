@@ -1,6 +1,6 @@
 namespace PlayerInput.Signals
 {
-    public class PlayerPressShootSignal
+    public class PlayerPressShootBtnSignal
     {
         
     }

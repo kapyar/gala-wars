@@ -8,8 +8,7 @@ namespace PlayerInput
         public override void InstallBindings()
         {
             Container.DeclareSignal<PlayerChangeJoystickSignal>();
-            Container.DeclareSignal<PlayerPressShootSignal>();
-            Container.DeclareSignal<PlayerReleaseShootSignal>();
+            Container.DeclareSignal<PlayerPressShootBtnSignal>();
         }
     }
 }

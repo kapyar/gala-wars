@@ -1,4 +1,4 @@
-namespace Game.Player.States
+namespace Game.Player.Movement.States
 {
     public abstract class PlayerBaseState
     {
