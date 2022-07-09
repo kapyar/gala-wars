@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
+using Game.Player.Combat.Signals;
+using UI.Overlay.Signals;
 using UnityEngine;
 using Zenject;
 
@@ -27,10 +29,13 @@ namespace Game
 
 
         private const string Shoot = "test";
+        private const string Close = "Close";
+        private const string WindowOpen = "WindowOpen";
+        private const string CoinCollected = "CoinCollected";
 
         private static readonly string[] PreloadedSounds = new[]
         {
-            Shoot,
+            Shoot, Close, WindowOpen, CoinCollected
         };
 
         private readonly HashSet<AudioSource> _sceneAudioSources = new HashSet<AudioSource>();
@@ -48,6 +53,11 @@ namespace Game
         public AudioController(SignalBus signalBus)
         {
             _signalBus = signalBus;
+
+            _signalBus.Subscribe<ShootSignal>(OnShoot);
+
+            _signalBus.Subscribe<OpenUIControllerSignal>(OnWindowOpen);
+            _signalBus.Subscribe<CloseUIControllerSignal>(OnWindowClose);
 
             CreateChannels();
             PreloadSounds();
@@ -96,11 +106,6 @@ namespace Game
 
             foreach (var clip in _playingItems)
             {
-                if (clip.SoundType == SoundType.Effect || clip.SoundType == SoundType.Music)
-                {
-                    continue;
-                }
-
                 if (clip.Channel == null || !clip.Channel.isPlaying)
                 {
                     _cache.Add(clip);
@@ -192,7 +197,6 @@ namespace Game
             }
         }
 
-
         private void StopSound(string id)
         {
             foreach (var soundClip in _playingItems)
@@ -203,5 +207,25 @@ namespace Game
                 }
             }
         }
+
+
+        #region UI sounds
+
+        private void OnWindowClose(CloseUIControllerSignal obj)
+        {
+            PlaySound(Close);
+        }
+
+        private void OnWindowOpen(OpenUIControllerSignal obj)
+        {
+            PlaySound(WindowOpen);
+        }
+
+        private void OnShoot()
+        {
+            PlaySound(Shoot);
+        }
+
+        #endregion
     }
 }

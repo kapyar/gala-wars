@@ -22,6 +22,8 @@ public class ProjectInstaller : MonoInstaller<ProjectInstaller>
         PlayerInstaller.Install(Container);
         PlayerInputInstaller.Install(Container);
 
+        CombatSystemInstaller.Install(Container);
+
         Container.BindInterfacesAndSelfTo<AudioController>().AsSingle().NonLazy();
 
         Container.Bind<IFileService>().To<FileService>().AsSingle();

@@ -1,4 +1,5 @@
 using Game.Helpers;
+using Game.Player.Combat.Signals;
 using GameState;
 using UnityEngine;
 
@@ -38,6 +39,8 @@ namespace Game.Player.Combat.States
             if (!_isCanShoot) return;
 
             Shoot();
+            
+            _context.SignalBus.Fire<ShootSignal>();
 
             _isCanShoot = false;
             _coolDownLeft = _context.GameStateController.GetCombatSystemConfig(GetCombatSystemType()).CoolDown;
