@@ -1,7 +1,6 @@
 using Game.Combat.Signals;
-using Game.Helpers;
-using Game.Player;
-using GameState;
+using GameState.Bullet;
+using GameState.Combat;
 using UnityEngine;
 
 namespace Game.Combat.States
@@ -17,17 +16,6 @@ namespace Game.Combat.States
         protected abstract void Shoot();
 
         private readonly BulletType _bulletType;
-
-        protected void SpawnAtPos(GameObject go)
-        {
-            var bullet = GameObject.Instantiate(
-                _context.PrefabsFactory.GetBullet(_bulletType),
-                go.transform.position,
-                go.transform.rotation
-            );
-
-            bullet.GetComponent<Mover>().Launch(go, _context.GameStateController.GetBulletConfig(_bulletType).Speed);
-        }
 
         public BaseCombatSystemState(AbstractCombatSystem context)
         {
@@ -58,6 +46,20 @@ namespace Game.Combat.States
             }
 
             _coolDownLeft -= Time.deltaTime;
+        }
+
+        protected void SpawnAtPos(GameObject go)
+        {
+            var tmp = GameObject.Instantiate(
+                _context.PrefabsFactory.GetBullet(_bulletType),
+                go.transform.position,
+                go.transform.rotation
+            );
+
+            var bullet = tmp.GetComponent<Bullet.Bullet>();
+            bullet.FromDto(_context.GameStateController.GetBulletConfig(_bulletType));
+
+            bullet.Launch(go);
         }
     }
 }

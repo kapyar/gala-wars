@@ -1,5 +1,6 @@
 using Game;
 using Game.Combat;
+using Game.Enemy;
 using GameConfig;
 using GameState.Prefabs;
 using Player;
@@ -23,6 +24,8 @@ public class ProjectInstaller : MonoInstaller<ProjectInstaller>
         PlayerInputInstaller.Install(Container);
 
         CombatSystemInstaller.Install(Container);
+
+        EnemyInstaller.Install(Container);
 
         Container.BindInterfacesAndSelfTo<AudioController>().AsSingle().NonLazy();
 

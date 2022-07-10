@@ -1,6 +1,7 @@
 using System.Linq;
 using Currency;
 using GameState;
+using GameState.Combat;
 using Player.Boosters.Signals;
 using Player.Data;
 using Player.Signals;

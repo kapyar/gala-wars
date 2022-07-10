@@ -1,4 +1,5 @@
 using System;
+using GameState.Bullet;
 using UnityEngine;
 
 namespace GameState.Prefabs

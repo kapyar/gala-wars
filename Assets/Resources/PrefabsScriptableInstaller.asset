@@ -20,4 +20,9 @@ MonoBehaviour:
       Prefab: {fileID: 185492, guid: 450f7706702d74afd8bbb550fe08a0e6, type: 3}
     - Id: 2
       Prefab: {fileID: 109416, guid: 6cc607d7f326f4bc1b9e58679d809e39, type: 3}
-    Ships: []
+    Ships:
+    - Id: Eagle
+      Prefab: {fileID: 4363052829795182772, guid: ee37ca1c49a5c45fa95f82d767832f38, type: 3}
+    FxDto:
+    - Id: Dead
+      Prefab: {fileID: 158308, guid: 96a96c08c36361544affb3c783e0056e, type: 3}

@@ -8,5 +8,6 @@ namespace GameState.Prefabs
     {
         public List<PrefabBulletEntryDto> Bullets = new List<PrefabBulletEntryDto>();
         public List<PrefabShipEntry> Ships = new List<PrefabShipEntry>();
+        public List<FxDto> FxDto = new List<FxDto>();
     }
 }

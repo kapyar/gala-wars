@@ -25,7 +25,7 @@ namespace Game.Movement.States
                 0
             );
 
-            _context.Rigidbody.rotation = Quaternion.Euler(90, 0, _context.Rigidbody.velocity.x * -_context.TiltFactor);
+            _context.Rigidbody.rotation = Quaternion.Euler(-90, 0, _context.Rigidbody.velocity.x * -_context.TiltFactor);
         }
     }
 }

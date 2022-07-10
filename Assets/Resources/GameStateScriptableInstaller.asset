@@ -13,10 +13,35 @@ MonoBehaviour:
   m_Name: GameStateScriptableInstaller
   m_EditorClassIdentifier: 
   GameStateDto:
-    ShipsDto:
+    PlayerShipsDto:
     - Id: Eagle
       Speed: 5
-      CombatSystemId: 
+      CombatSystemId: 1
+    EnemyShipsDto:
+    - Id: EnemyBomber
+      Speed: 4
+      CombatSystemId: 0
+      RewardDto:
+      - Type: 0
+        Probability: 0.55
+        From: 1
+        To: 5
+      - Type: 1
+        Probability: 1
+        From: 100
+        To: 500
+    - Id: EnemyFighter
+      Speed: 7
+      CombatSystemId: 0
+      RewardDto:
+      - Type: 0
+        Probability: 0.815
+        From: 1
+        To: 5
+      - Type: 1
+        Probability: 1
+        From: 300
+        To: 800
     BulletsDto:
     - Id: 0
       Speed: 10
@@ -40,3 +65,20 @@ MonoBehaviour:
     - Id: 3
       BulletId: 2
       CoolDown: 0.3
+    LevelDto:
+    - Name: First
+      WaveDto:
+      - EnemyShip: EnemyFighter
+        Delay: 1
+      - EnemyShip: EnemyFighter
+        Delay: 1
+      - EnemyShip: EnemyBomber
+        Delay: 1
+    - Name: Second
+      WaveDto:
+      - EnemyShip: EnemyBomber
+        Delay: 1
+      - EnemyShip: EnemyBomber
+        Delay: 5
+      - EnemyShip: EnemyBomber
+        Delay: 3

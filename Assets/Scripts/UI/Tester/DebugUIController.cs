@@ -1,3 +1,4 @@
+using Game;
 using Player;
 using Player.Signals;
 using UI.EnterNameController.Signals;
@@ -10,6 +11,13 @@ namespace UI.Tester
     {
         [Inject] private SignalBus _signalBus;
         [Inject] private PlayerStateController _playerStateController;
+
+        private GameController _gameController;
+
+        private void Start()
+        {
+            _gameController = FindObjectOfType<GameController>();
+        }
 
         public void AddCoins()
         {
@@ -29,6 +37,11 @@ namespace UI.Tester
         public void SaveGame()
         {
             _signalBus.Fire<SaveDataSignal>();
+        }
+
+        public void SpawnPlayer()
+        {
+            _gameController.SpawnPlayer();
         }
     }
 }

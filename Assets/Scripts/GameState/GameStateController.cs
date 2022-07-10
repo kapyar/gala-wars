@@ -1,5 +1,7 @@
 using System.Linq;
-using GameState;
+using GameState.Bullet;
+using GameState.Combat;
+using GameState.Ships;
 using Player;
 
 namespace GameConfig
@@ -8,7 +10,7 @@ namespace GameConfig
     {
         public GameStateDto GameStateDto { get; }
 
-        private PlayerStateController _playerStateController;
+        private readonly PlayerStateController _playerStateController;
 
         public GameStateController(GameStateDto gameStateDto, PlayerStateController playerStateController)
         {
@@ -21,19 +23,14 @@ namespace GameConfig
             return GameStateDto.BulletsDto.FirstOrDefault(x => x.Id == id);
         }
 
-        public ShipDto GetShipConfig(string id)
-        {
-            return GameStateDto.ShipsDto.FirstOrDefault(x => x.Id == id);
-        }
-
         public CombatSystemDto GetCombatSystemConfig(CombatSystemType id)
         {
             return GameStateDto.CombatSystemDto.FirstOrDefault(x => x.Id == id);
         }
 
-        public ShipDto GetPlayerShipConfig()
+        public PlayerShipDto GetPlayerShipConfig()
         {
-            return GameStateDto.ShipsDto.FirstOrDefault(x => x.Id == _playerStateController.PlayerData.ShipId);
+            return GameStateDto.PlayerShipsDto.FirstOrDefault(x => x.Id == _playerStateController.PlayerData.ShipId);
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Currency;
 using GameState;
+using GameState.Combat;
 using Newtonsoft.Json;
 
 namespace Player.Data

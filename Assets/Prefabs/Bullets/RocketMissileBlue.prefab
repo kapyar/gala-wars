@@ -4766,7 +4766,7 @@ GameObject:
   - component: {fileID: 8265724}
   - component: {fileID: 3166921037838191103}
   - component: {fileID: 3586467043356058027}
-  - component: {fileID: 3503234624289094481}
+  - component: {fileID: 6121360061307870768}
   m_Layer: 0
   m_Name: RocketMissileBlue
   m_TagString: Untagged
@@ -9637,7 +9637,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3503234624289094481
+--- !u!114 &6121360061307870768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9646,7 +9646,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 123432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 656ce3c4baa54c2fa872ed9c33a9c6af, type: 3}
+  m_Script: {fileID: 11500000, guid: 82bb8c70872c4c9ba5823f58bf9ffc4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &141018

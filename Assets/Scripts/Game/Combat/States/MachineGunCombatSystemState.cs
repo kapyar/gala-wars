@@ -1,5 +1,6 @@
 using Game.Player;
 using GameState;
+using GameState.Combat;
 
 namespace Game.Combat.States
 {
