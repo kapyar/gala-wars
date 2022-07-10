@@ -19,10 +19,9 @@ namespace Game.Helpers
             }
         }
 
-
-        public void Launch(float speed)
+        public void Launch(GameObject spawnPoint, float speed)
         {
-            RG.velocity = transform.forward * speed;
+            RG.velocity = spawnPoint.transform.forward * speed;
         }
     }
 }

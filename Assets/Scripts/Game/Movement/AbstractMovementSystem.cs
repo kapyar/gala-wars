@@ -32,5 +32,10 @@ namespace Game.Movement
         {
             Bounds = new Bounds(Camera.main, _meshRenderer);
         }
+
+        protected virtual void FixedUpdate()
+        {
+            _currentState.FixedUpdate();
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace Game.Combat.States
                 go.transform.rotation
             );
 
-            bullet.GetComponent<Mover>().Launch(_context.GameStateController.GetBulletConfig(_bulletType).Speed);
+            bullet.GetComponent<Mover>().Launch(go, _context.GameStateController.GetBulletConfig(_bulletType).Speed);
         }
 
         public BaseCombatSystemState(AbstractCombatSystem context)

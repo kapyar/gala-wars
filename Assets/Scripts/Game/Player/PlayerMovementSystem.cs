@@ -28,10 +28,6 @@ namespace Game.Player
             _currentState.EnterState();
         }
 
-        private void FixedUpdate()
-        {
-            _currentState.FixedUpdate();
-        }
 
         private void OnDestroy()
         {

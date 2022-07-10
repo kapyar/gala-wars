@@ -1,4 +1,3 @@
-using Game.Player;
 using GameState;
 
 namespace Game.Combat.States
