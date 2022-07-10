@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 3326824469203481073}
   - component: {fileID: 3326824469203481039}
   - component: {fileID: 3326824469203481036}
+  - component: {fileID: 1253925813158024246}
   m_Layer: 7
   m_Name: EnemyBomber
   m_TagString: Untagged
@@ -310,3 +311,16 @@ MonoBehaviour:
   _rigidbody: {fileID: 3326824469203481038}
   _meshRenderer: {fileID: 3326824469201284912}
   _tiltFactor: 8
+--- !u!114 &1253925813158024246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3326824469203481072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 2

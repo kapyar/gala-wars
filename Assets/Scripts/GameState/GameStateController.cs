@@ -33,7 +33,7 @@ namespace GameConfig
             return GameStateDto.PlayerShipsDto.FirstOrDefault(x => x.Id == _playerStateController.PlayerData.ShipId);
         }
 
-        public PlayerShipDto GetEnemyShipConfig(string id)
+        public EnemyShipDto GetEnemyShipConfig(string id)
         {
             return GameStateDto.EnemyShipsDto.FirstOrDefault(x => x.Id == id);
         }
