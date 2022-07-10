@@ -1,5 +1,5 @@
 using Game;
-using Game.Player.Combat;
+using Game.Combat;
 using GameConfig;
 using GameState.Prefabs;
 using Player;

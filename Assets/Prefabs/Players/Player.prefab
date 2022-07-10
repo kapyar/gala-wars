@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 4363052829802568562}
   - component: {fileID: 4363052829795282479}
   - component: {fileID: 4363052829795282448}
-  - component: {fileID: 4700658575084379853}
+  - component: {fileID: 9110963051950393340}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -383,8 +383,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 4363052829795282479}
   _meshRenderer: {fileID: 4363052829793252978}
-  _tiltFactor: 5
---- !u!114 &4700658575084379853
+  _tiltFactor: 8
+--- !u!114 &9110963051950393340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
-using Game.Player.Combat.Signals;
+using Game.Combat.Signals;
 using UI.Overlay.Signals;
 using UnityEngine;
 using Zenject;
@@ -61,6 +61,8 @@ namespace Game
 
             CreateChannels();
             PreloadSounds();
+
+            LoadAmbientSound(GetClipPath("background"));
         }
 
         private void SetBackgroundVolume(float? val)
