@@ -1,6 +1,5 @@
 using System.Linq;
 using Currency;
-using GameState;
 using GameState.Combat;
 using Player.Boosters.Signals;
 using Player.Data;
@@ -48,6 +47,14 @@ namespace Player
         private void OnNameSubmitted(SubmitNameSignal signal)
         {
             _data.SetName(signal.Name);
+            ResetData();
+        }
+
+        private void ResetData()
+        {
+            _data.SetHighScore(0);
+            _coinsBank.SetAmount(0);
+            _experienceBank.SetAmount(0);
         }
 
         private void InitBank()

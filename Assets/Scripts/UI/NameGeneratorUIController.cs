@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using Services.Files;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace UI
 {
@@ -11,8 +9,6 @@ namespace UI
         private const string FilePath = "names.json";
 
         [SerializeField] private InputField _inputField;
-
-        [Inject] private IFileService _fileService;
 
         private List<string> _names = new List<string>();
 

@@ -8,6 +8,7 @@ using PlayerInput;
 using Services.Files;
 using UI.GameOverController;
 using UI.Overlay;
+using UI.WelcomeScreen;
 using Zenject;
 
 public class ProjectInstaller : MonoInstaller<ProjectInstaller>
@@ -19,6 +20,7 @@ public class ProjectInstaller : MonoInstaller<ProjectInstaller>
         EnterNameUIInstaller.Install(Container);
         OverlayUIInstaller.Install(Container);
         GameOverUIInstaller.Install(Container);
+        WelcomeScreenUIInstaller.Install(Container);
 
         PlayerInstaller.Install(Container);
         PlayerInputInstaller.Install(Container);
@@ -32,5 +34,7 @@ public class ProjectInstaller : MonoInstaller<ProjectInstaller>
         Container.Bind<IFileService>().To<FileService>().AsSingle();
         Container.Bind<GameStateController>().AsSingle().NonLazy();
         Container.Bind<PrefabsFactory>().AsSingle().NonLazy();
+
+        Container.DeclareSignal<StartGameSignal>();
     }
 }

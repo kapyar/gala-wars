@@ -1,3 +1,4 @@
+using Game;
 using UI.EnterNameController.Signals;
 using UI.Helpers;
 using UnityEngine;
@@ -31,6 +32,13 @@ public class EnterNameUIController : UIController
         _signalBus.Fire(signal);
 
         Close();
+    }
+
+    public void OnForceClose()
+    {
+        Close();
+
+        _signalBus.Fire<StartGameSignal>();
     }
 
     public void OnValidate()
