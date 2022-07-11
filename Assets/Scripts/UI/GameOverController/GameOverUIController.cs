@@ -1,12 +1,9 @@
-using System.Linq;
-using Currency;
+using Game.Controllers.Leaderboard;
 using Player;
 using Player.Signals;
-using TMPro;
 using UI.GameOverController.Signals;
 using UI.Helpers;
 using UnityEngine;
-using Utils;
 using Zenject;
 
 namespace UI.GameOverController
@@ -15,9 +12,11 @@ namespace UI.GameOverController
     {
         [Inject] private SignalBus _signalBus;
         [Inject] private PlayerStateController _playerStateController;
+        [Inject] private LeaderboardController _leaderboardController;
 
-        [SerializeField] private TextMeshProUGUI _highestScore;
-        [SerializeField] private TextMeshProUGUI _currentScore;
+        [SerializeField] private RecordEntryUI _allTime;
+        [SerializeField] private RecordEntryUI _yourBest;
+        [SerializeField] private RecordEntryUI _yourCurrent;
 
         private void Start()
         {
@@ -28,24 +27,15 @@ namespace UI.GameOverController
         {
             base.Open();
 
-            AnimateHighestScore();
-            AnimateYourScore();
+            _allTime.SetValues(_leaderboardController.Data.Name, _leaderboardController.Data.Score);
+            _yourBest.SetValues(_playerStateController.PlayerData.Name, _playerStateController.PlayerData.HighScore);
+            _yourCurrent.SetValues(_playerStateController.PlayerData.Name, _playerStateController.ExperienceBank.Amount);
         }
 
-        private void AnimateHighestScore()
+
+        public void ContinueGame()
         {
-            var score = _playerStateController.PlayerData.HighScore;
-
-            UIUtils.AnimateLabelWithNumber(_highestScore, score);
         }
-
-        private void AnimateYourScore()
-        {
-            var score = _playerStateController.PlayerData.Bank.FirstOrDefault(x => x.Id == CurrencyType.Experience).Amount;
-
-            UIUtils.AnimateLabelWithNumber(_currentScore, score);
-        }
-
 
         public void QuitGame()
         {

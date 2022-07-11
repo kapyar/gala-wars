@@ -25,6 +25,9 @@ namespace Player
         private readonly SignalBus _signalBus;
         private MutableCurrencyData _coinsBank;
         private MutableCurrencyData _experienceBank;
+        
+        public ReadonlyCurrencyData ExperienceBank => _experienceBank;
+
 
         private readonly LeaderboardController _leaderboardController;
 

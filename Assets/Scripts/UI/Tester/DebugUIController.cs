@@ -1,8 +1,8 @@
-using Game;
 using Game.Controllers;
 using Player;
 using Player.Signals;
 using UI.EnterNameController.Signals;
+using UI.GameOverController.Signals;
 using UnityEngine;
 using Zenject;
 
@@ -43,6 +43,11 @@ namespace UI.Tester
         public void SpawnPlayer()
         {
             _gameController.SpawnPlayer();
+        }
+
+        public void OpenGameOverScreen()
+        {
+            _signalBus.Fire<OpenGameOverWindowSignal>();
         }
     }
 }

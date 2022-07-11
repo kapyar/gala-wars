@@ -990,6 +990,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: NameText
       objectReference: {fileID: 0}
+    - target: {fileID: 1466125452094413245, guid: 96e36620f681b4be18748d493b70149a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 49.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466125452623418930, guid: 96e36620f681b4be18748d493b70149a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466125452623418930, guid: 96e36620f681b4be18748d493b70149a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 91.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466125452623418930, guid: 96e36620f681b4be18748d493b70149a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 180.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466125452623418931, guid: 96e36620f681b4be18748d493b70149a, type: 3}
+      propertyPath: m_Text
+      value: All time best
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466125452623418931, guid: 96e36620f681b4be18748d493b70149a, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466125452660957077, guid: 96e36620f681b4be18748d493b70149a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 412.9
+      objectReference: {fileID: 0}
     - target: {fileID: 1466125452894232282, guid: 96e36620f681b4be18748d493b70149a, type: 3}
       propertyPath: m_Name
       value: Panel_RankCurrent
