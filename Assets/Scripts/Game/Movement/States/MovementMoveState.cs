@@ -16,6 +16,7 @@ namespace Game.Movement.States
         {
             var direction = Vector3.up * _context.Direction.y + Vector3.right * _context.Direction.x;
 
+            //TODO yk get config by name
             _context.Rigidbody.velocity = direction * _context.GameStateController.GetPlayerShipConfig().Speed;
 
             _context.Rigidbody.position = new Vector3(

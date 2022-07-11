@@ -1,4 +1,5 @@
 using Game.Controllers;
+using GameConfig;
 using Player;
 using PlayerState.Signals;
 using UI.EnterNameController.Signals;
@@ -12,6 +13,7 @@ namespace UI.Tester
     {
         [Inject] private SignalBus _signalBus;
         [Inject] private PlayerStateController _playerStateController;
+        [Inject] private GameStateController _gameStateController;
 
         private GameController _gameController;
 
@@ -42,7 +44,7 @@ namespace UI.Tester
 
         public void SpawnPlayer()
         {
-            _gameController.SpawnPlayer();
+            _gameController.SpawnPlayer(_gameStateController.GetPlayerShipConfig());
         }
 
         public void OpenGameOverScreen()

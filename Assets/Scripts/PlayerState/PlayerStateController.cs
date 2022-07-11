@@ -27,7 +27,6 @@ namespace Player
         
         public ReadonlyCurrencyData ExperienceBank => _experienceBank;
 
-
         private readonly LeaderboardController _leaderboardController;
 
 

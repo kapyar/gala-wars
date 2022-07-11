@@ -337,3 +337,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0107dcdc0e47d7a8fdbbc3c6192fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _combatSystem: {fileID: 3326824469203481073}
+  _dto:
+    Id: 
+    Speed: 0
+    CombatSystemId: 0
+    RewardDto: []

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.Controllers.Level.Signals;
 using Game.Enemy;
+using Game.Player;
+using Game.Player.Signals;
 using GameConfig;
 using GameState.Level;
 using GameState.Prefabs;
@@ -27,6 +29,8 @@ namespace Game.Controllers
         private int _currentLevel;
         private List<LevelDto> _levelDtos = new List<LevelDto>();
 
+        private Coroutine _loadLevelRoutine;
+
 
         [Inject]
         public void Construct(SignalBus signalBus, PlayerStateController playerStateController,
@@ -44,15 +48,20 @@ namespace Game.Controllers
             _signalBus.Subscribe<ContinueGameSignal>(ContinueGame);
             _signalBus.Subscribe<SubmitNameSignal>(StartNewGame);
             _signalBus.Subscribe<LevelEndedSignal>(OnLevelEnded);
+            _signalBus.Subscribe<PlayerDiedSignal>(OnPlayerDied);
 
             _levelDtos = _gameStateController.GameStateDto.LevelDto;
 
             _signalBus.Fire<StartGameSignal>();
         }
 
-        public void SpawnPlayer()
+
+        public void SpawnPlayer(PlayerShipDto dto)
         {
             var player = _prefabsFactory.GetShip(_playerStateController.PlayerData.ShipId);
+
+            var controller = player.GetComponent<PlayerController>();
+            controller.FromDto(dto);
 
             Instantiate(player, _playerStartPoint.transform);
         }
@@ -69,16 +78,17 @@ namespace Game.Controllers
 
         private void StartNewGame(SubmitNameSignal signal)
         {
-            SpawnPlayer();
-            StartCoroutine(LoadLevelRoutine(_levelDtos[0]));
+            SpawnPlayer(_gameStateController.GetPlayerShipConfig());
+
+            _loadLevelRoutine = StartCoroutine(LoadLevelRoutine(_levelDtos[0]));
         }
 
         private void ContinueGame(ContinueGameSignal signal)
         {
             Debug.Log("Start quick game");
 
-            SpawnPlayer();
-            StartCoroutine(LoadLevelRoutine(_levelDtos[_currentLevel]));
+            SpawnPlayer(_gameStateController.GetPlayerShipConfig());
+            _loadLevelRoutine = StartCoroutine(LoadLevelRoutine(_levelDtos[_currentLevel]));
         }
 
         private void OnLevelEnded(LevelEndedSignal signal)
@@ -89,6 +99,11 @@ namespace Game.Controllers
             {
                 _signalBus.Fire<GameLevelsCompleted>();
             }
+        }
+
+        private void OnPlayerDied(PlayerDiedSignal obj)
+        {
+            StopCoroutine(_loadLevelRoutine);
         }
 
         private IEnumerator LoadLevelRoutine(LevelDto levelDto)

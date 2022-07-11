@@ -1,6 +1,8 @@
+using System;
 using Game.Combat.Bullet;
 using Game.Combat.States;
 using GameConfig;
+using GameState.Combat;
 using GameState.Prefabs;
 using UnityEngine;
 using Zenject;
@@ -31,6 +33,29 @@ namespace Game.Combat
         protected virtual void Update()
         {
             _currentState.Update();
+        }
+
+        public void SetState(CombatSystemType type)
+        {
+            switch (type)
+            {
+                case CombatSystemType.Enemy:
+                    break;
+                case CombatSystemType.StartPlayer:
+                    _currentState = new StartPlayerCombatSystemState(this);
+                    break;
+                case CombatSystemType.Bomb:
+                    _currentState = new BombCombatSystemState(this);
+                    break;
+                case CombatSystemType.MachineGun:
+                    _currentState = new MachineGunCombatSystemState(this);
+                    break;
+                case CombatSystemType.Idle:
+                    _currentState = new IdleCombatSystemState(this);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            }
         }
     }
 }

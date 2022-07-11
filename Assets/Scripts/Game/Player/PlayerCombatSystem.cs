@@ -1,7 +1,9 @@
+using System;
 using Game.Combat;
 using Game.Combat.Bullet;
 using Game.Combat.States;
 using GameConfig;
+using GameState.Combat;
 using GameState.Prefabs;
 using Player;
 using PlayerInput.Signals;

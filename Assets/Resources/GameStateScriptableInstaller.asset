@@ -16,7 +16,7 @@ MonoBehaviour:
     PlayerShipsDto:
     - Id: Eagle
       Speed: 5
-      CombatSystemId: 1
+      CombatSystemId: 3
     EnemyShipsDto:
     - Id: EnemyBomber
       Speed: 4
@@ -65,6 +65,9 @@ MonoBehaviour:
     - Id: 3
       BulletId: 2
       CoolDown: 0.3
+    - Id: 4
+      BulletId: 0
+      CoolDown: 10
     LevelDto:
     - Name: First
       WaveDto:

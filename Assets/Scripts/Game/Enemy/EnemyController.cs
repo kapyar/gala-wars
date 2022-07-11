@@ -1,3 +1,4 @@
+using Game.Combat;
 using Game.Enemy.Signals;
 using GameState.Ships;
 using UnityEngine;
@@ -9,12 +10,18 @@ namespace Game.Enemy
     {
         private SignalBus _signalBus;
 
+        [SerializeField] private AbstractCombatSystem _combatSystem;
         [SerializeField] private EnemyShipDto _dto;
 
         [Inject]
         public void Construct(SignalBus signalBus)
         {
             _signalBus = signalBus;
+        }
+
+        private void Start()
+        {
+            _combatSystem.SetState(_dto.CombatSystemId);
         }
 
         public void FromDto(EnemyShipDto dto)
