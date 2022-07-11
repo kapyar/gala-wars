@@ -1,4 +1,4 @@
-namespace Player.Boosters.Signals
+namespace PlayerState.Boosters.Signals
 {
     public class PlayerEarnBooster
     {

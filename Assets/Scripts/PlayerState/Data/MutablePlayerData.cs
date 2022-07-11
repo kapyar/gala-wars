@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Currency;
-using GameState;
 using GameState.Combat;
 using Newtonsoft.Json;
 
-namespace Player.Data
+namespace PlayerState.Data
 {
     [Serializable]
     public class MutablePlayerData : ReadOnlyPlayerData

@@ -1,6 +1,6 @@
 using Currency;
 
-namespace Player.Boosters.Signals
+namespace PlayerState.Boosters.Signals
 {
     public class PlayerEarnCurrencySignal
     {

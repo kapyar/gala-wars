@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using Currency;
 using Player;
-using Player.Boosters.Signals;
+using PlayerState.Boosters.Signals;
 using TMPro;
 using UnityEngine;
 using Utils;

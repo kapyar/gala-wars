@@ -1,8 +1,9 @@
-using Player.Boosters.Signals;
-using Player.Signals;
+using Player;
+using PlayerState.Boosters.Signals;
+using PlayerState.Signals;
 using Zenject;
 
-namespace Player
+namespace PlayerState
 {
     public class PlayerInstaller : Installer<PlayerInstaller>
     {

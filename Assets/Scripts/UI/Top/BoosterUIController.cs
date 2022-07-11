@@ -1,6 +1,6 @@
 using System;
-using Player.Boosters;
-using Player.Boosters.Signals;
+using PlayerState.Boosters;
+using PlayerState.Boosters.Signals;
 using UnityEngine;
 using UnityEngine.UI;
 using Utils;

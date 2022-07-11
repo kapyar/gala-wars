@@ -1,13 +1,12 @@
 using System;
 using System.Linq;
 using Currency;
-using Game;
 using Game.Controllers.Leaderboard;
 using Game.Enemy.Signals;
 using GameState.Combat;
-using Player.Boosters.Signals;
-using Player.Data;
-using Player.Signals;
+using PlayerState.Boosters.Signals;
+using PlayerState.Data;
+using PlayerState.Signals;
 using Services;
 using Services.Files;
 using UI.EnterNameController.Signals;

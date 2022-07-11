@@ -1,8 +1,10 @@
 using Game.Controllers.Leaderboard;
+using Game.Player.Signals;
 using Player;
-using Player.Signals;
+using PlayerState.Signals;
 using UI.GameOverController.Signals;
 using UI.Helpers;
+using UI.WelcomeScreen.Signals;
 using UnityEngine;
 using Zenject;
 
@@ -21,6 +23,7 @@ namespace UI.GameOverController
         private void Start()
         {
             _signalBus.Subscribe<OpenGameOverWindowSignal>(Open);
+            _signalBus.Subscribe<PlayerDiedSignal>(Open);
         }
 
         public override void Open()
@@ -32,9 +35,15 @@ namespace UI.GameOverController
             _yourCurrent.SetValues(_playerStateController.PlayerData.Name, _playerStateController.ExperienceBank.Amount);
         }
 
+        public void OnPlayerDied()
+        {
+            Open();
+        }
 
         public void ContinueGame()
         {
+            //show rewarded video on  complete close the window and fire signal to run the level again
+            _signalBus.Fire<ContinueGameSignal>();
         }
 
         public void QuitGame()

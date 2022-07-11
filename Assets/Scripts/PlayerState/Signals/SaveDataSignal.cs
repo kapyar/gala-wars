@@ -1,4 +1,4 @@
-namespace Player.Signals
+namespace PlayerState.Signals
 {
     public class SaveDataSignal
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Currency;
 using Newtonsoft.Json;
 
-namespace Player.Data
+namespace PlayerState.Data
 {
     [Serializable]
     public class ReadOnlyPlayerData

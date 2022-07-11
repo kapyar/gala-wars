@@ -1,6 +1,6 @@
 using Game.Controllers;
 using Player;
-using Player.Signals;
+using PlayerState.Signals;
 using UI.EnterNameController.Signals;
 using UI.GameOverController.Signals;
 using UnityEngine;

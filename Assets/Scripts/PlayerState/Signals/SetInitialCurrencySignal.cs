@@ -1,6 +1,6 @@
 using Currency;
 
-namespace Player.Signals
+namespace PlayerState.Signals
 {
     public class SetInitialCurrencySignal
     {

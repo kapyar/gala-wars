@@ -6,6 +6,7 @@ using GameConfig;
 using GameState.Prefabs;
 using Player;
 using PlayerInput;
+using PlayerState;
 using Services.Files;
 using UI.GameOverController;
 using UI.Overlay;

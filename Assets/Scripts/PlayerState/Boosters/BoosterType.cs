@@ -1,4 +1,4 @@
-namespace Player.Boosters
+namespace PlayerState.Boosters
 {
     public enum BoosterType
     {
