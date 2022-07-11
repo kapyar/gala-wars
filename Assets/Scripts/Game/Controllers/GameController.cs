@@ -16,7 +16,7 @@ namespace Game.Controllers
 {
     public class GameController : MonoBehaviour
     {
-        [SerializeField] private GameObject _enemySpawnPoint;
+        [SerializeField] private List<GameObject> _enemySpawnPoint;
         [SerializeField] private GameObject _playerStartPoint;
 
         private SignalBus _signalBus;
@@ -64,7 +64,7 @@ namespace Game.Controllers
             var controller = enemy.GetComponent<EnemyController>();
             controller.FromDto(dto);
 
-            Instantiate(enemy, _enemySpawnPoint.transform);
+            Instantiate(enemy, _enemySpawnPoint[Random.Range(0, _enemySpawnPoint.Count)].transform);
         }
 
         private void StartNewGame(SubmitNameSignal signal)
@@ -106,8 +106,14 @@ namespace Game.Controllers
             {
                 _signalBus.Fire<WaveStartedSignal>();
 
-                var enemyDto = _gameStateController.GetEnemyShipConfig(wave.EnemyShip);
-                SpawnEnemy(enemyDto);
+                foreach (var waveWaveEnemyDto in wave.WaveEnemyDtos)
+                {
+                    var enemyDto = _gameStateController.GetEnemyShipConfig(waveWaveEnemyDto.EnemyShip);
+
+                    SpawnEnemy(enemyDto);
+
+                    yield return new WaitForSeconds(waveWaveEnemyDto.Delay);
+                }
 
                 yield return new WaitForSeconds(wave.Delay);
 

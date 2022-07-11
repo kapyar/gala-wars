@@ -24,6 +24,11 @@ namespace Game.Enemy
         }
 
 
+        public override string GetName()
+        {
+            return "Enemy";
+        }
+
         [Inject]
         public void Construct(SignalBus signalBus, GameStateController gameStateController)
         {

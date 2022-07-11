@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Game.Movement
 {
-    public class AbstractMovementSystem : MonoBehaviour
+    public abstract class AbstractMovementSystem : MonoBehaviour
     {
         [SerializeField] private Rigidbody _rigidbody;
         public Rigidbody Rigidbody => _rigidbody;
@@ -20,6 +20,8 @@ namespace Game.Movement
 
         public Bounds Bounds { get; protected set; }
         public Vector2 Direction { get; protected set; }
+
+        public abstract string GetName();
 
 
         protected void Construct(SignalBus signalBus, GameStateController gameStateController)

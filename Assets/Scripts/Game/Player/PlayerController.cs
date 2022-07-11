@@ -33,7 +33,6 @@ namespace Game.Player
 
             _signalBus.Fire(signal);
 
-
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

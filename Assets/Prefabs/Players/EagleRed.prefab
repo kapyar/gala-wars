@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 4363052829795282448}
   - component: {fileID: 9110963051950393340}
   - component: {fileID: 8143830249806235533}
+  - component: {fileID: 8191811909984205752}
   m_Layer: 0
   m_Name: EagleRed
   m_TagString: Untagged
@@ -411,6 +412,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _containerSource: 0
+--- !u!114 &8191811909984205752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363052829795182772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bf281d7a934ef7b336d24ad65cdd64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4363052829795182776
 GameObject:
   m_ObjectHideFlags: 0

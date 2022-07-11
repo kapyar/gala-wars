@@ -25,7 +25,7 @@ namespace Game.Controllers
             Debug.Log("FXController OnEnemyDeathSignal");
 
             var death = _prefabsFactory.GetFX("Death");
-            Instantiate(death, signal.Transform);
+            Instantiate(death, signal.Transform.position, signal.Transform.rotation);
         }
     }
 }

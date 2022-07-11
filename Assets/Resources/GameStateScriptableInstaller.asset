@@ -68,17 +68,43 @@ MonoBehaviour:
     LevelDto:
     - Name: First
       WaveDto:
-      - EnemyShip: EnemyFighter
-        Delay: 5
-      - EnemyShip: EnemyFighter
-        Delay: 6
-      - EnemyShip: EnemyBomber
-        Delay: 5
+      - WaveEnemyDtos:
+        - EnemyShip: EnemyBomber
+          Delay: 5
+        - EnemyShip: EnemyBomber
+          Delay: 0
+        Delay: 7
+      - WaveEnemyDtos:
+        - EnemyShip: EnemyFighter
+          Delay: 0
+        Delay: 4
     - Name: Second
       WaveDto:
-      - EnemyShip: EnemyBomber
-        Delay: 1
-      - EnemyShip: EnemyBomber
-        Delay: 5
-      - EnemyShip: EnemyBomber
-        Delay: 3
+      - WaveEnemyDtos:
+        - EnemyShip: EnemyBomber
+          Delay: 0
+        - EnemyShip: EnemyBomber
+          Delay: 0
+        Delay: 7
+      - WaveEnemyDtos:
+        - EnemyShip: EnemyFighter
+          Delay: 0
+        - EnemyShip: EnemyBomber
+          Delay: 0
+        Delay: 7
+    - Name: Third
+      WaveDto:
+      - WaveEnemyDtos:
+        - EnemyShip: EnemyBomber
+          Delay: 0
+        - EnemyShip: EnemyBomber
+          Delay: 0
+        - EnemyShip: EnemyFighter
+          Delay: 0
+        Delay: 7
+      - WaveEnemyDtos:
+        - EnemyShip: EnemyFighter
+          Delay: 0
+        - EnemyShip: EnemyBomber
+          Delay: 0
+        Delay: 7

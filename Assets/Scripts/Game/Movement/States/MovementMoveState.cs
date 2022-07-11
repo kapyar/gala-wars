@@ -10,7 +10,6 @@ namespace Game.Movement.States
 
         public override void EnterState()
         {
-            
         }
 
         public override void FixedUpdate()
@@ -25,7 +24,13 @@ namespace Game.Movement.States
                 0
             );
 
-            _context.Rigidbody.rotation = Quaternion.Euler(-90, 0, _context.Rigidbody.velocity.x * -_context.TiltFactor);
+            var x = 90;
+            if (_context.GetName().Equals("Player"))
+            {
+                x = -x;
+            }
+
+            _context.Rigidbody.rotation = Quaternion.Euler(x, 0, _context.Rigidbody.velocity.x * -_context.TiltFactor);
         }
     }
 }

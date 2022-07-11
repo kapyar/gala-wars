@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Game.Movement.States
@@ -16,7 +15,6 @@ namespace Game.Movement.States
 
         public override void FixedUpdate()
         {
-            throw new NotImplementedException();
         }
     }
 }
