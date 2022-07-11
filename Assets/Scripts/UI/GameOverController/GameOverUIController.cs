@@ -44,12 +44,15 @@ namespace UI.GameOverController
         {
             //show rewarded video on  complete close the window and fire signal to run the level again
             _signalBus.Fire<ContinueGameSignal>();
+            Close();
         }
 
         public void QuitGame()
         {
             _signalBus.Fire<SaveDataSignal>();
             _signalBus.Fire<QuitGameSignal>();
+
+            Close();
         }
     }
 }

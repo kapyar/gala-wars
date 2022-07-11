@@ -174,7 +174,7 @@ MeshCollider:
   m_GameObject: {fileID: 8113063938110226529}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 8113063938110129726}
   - component: {fileID: -6621760610704840328}
   - component: {fileID: -4465631432394753702}
+  - component: {fileID: 4863543334666133414}
   m_Layer: 7
   m_Name: EnemyFighter
   m_TagString: Untagged
@@ -398,6 +399,19 @@ MonoBehaviour:
     Speed: 0
     CombatSystemId: 0
     RewardDto: []
+--- !u!65 &4863543334666133414
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113063938110226533}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.8403945, y: 2.9739196, z: 10.629292}
+  m_Center: {x: 0.017166015, y: -0.042911366, z: 0.060074788}
 --- !u!1 &8113063938110226535
 GameObject:
   m_ObjectHideFlags: 0

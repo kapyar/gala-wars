@@ -157,10 +157,10 @@ GameObject:
   - component: {fileID: 3326824469193949744}
   - component: {fileID: 3326824469203481038}
   - component: {fileID: 3326824469203481073}
-  - component: {fileID: 3326824469203481039}
   - component: {fileID: 3326824469203481036}
   - component: {fileID: 1253925813158024246}
   - component: {fileID: 2075219350209005158}
+  - component: {fileID: 7459291807690930953}
   m_Layer: 7
   m_Name: EnemyBomber
   m_TagString: Untagged
@@ -283,20 +283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunHolder: {fileID: 3326824467311868145}
---- !u!64 &3326824469203481039
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3326824469203481072}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 4e230ad0c03307c40ba30d3d78b21555, type: 3}
 --- !u!114 &3326824469203481036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,3 +329,16 @@ MonoBehaviour:
     Speed: 0
     CombatSystemId: 0
     RewardDto: []
+--- !u!65 &7459291807690930953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3326824469203481072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7374653, y: 1.085301, z: 2.7081046}
+  m_Center: {x: 0, y: -0.07901624, z: -1.04613704e-16}
