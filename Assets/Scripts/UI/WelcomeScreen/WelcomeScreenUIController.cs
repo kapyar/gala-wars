@@ -1,5 +1,4 @@
 using Game;
-using Player;
 using TMPro;
 using UI.EnterNameController.Signals;
 using UI.Helpers;
@@ -16,13 +15,13 @@ namespace UI.WelcomeScreen
         [SerializeField] private TextMeshProUGUI _name;
 
         private SignalBus _signalBus;
-        private PlayerStateController _playerStateController;
+        private LeaderboardController _leaderboardController;
 
         [Inject]
-        public void Construct(SignalBus signalBus, PlayerStateController playerStateController)
+        public void Construct(SignalBus signalBus, LeaderboardController leaderboardController)
         {
             _signalBus = signalBus;
-            _playerStateController = playerStateController;
+            _leaderboardController = leaderboardController;
         }
 
         private void Start()
@@ -38,8 +37,8 @@ namespace UI.WelcomeScreen
         public override void Open()
         {
             base.Open();
-            _name.text = _playerStateController.PlayerData.Name;
-            
+            _name.text = _leaderboardController.Data.Name;
+
             AnimateHighestScore();
         }
 
@@ -60,7 +59,7 @@ namespace UI.WelcomeScreen
 
         private void AnimateHighestScore()
         {
-            var score = _playerStateController.PlayerData.HighScore;
+            var score = _leaderboardController.Data.Score;
 
             UIUtils.AnimateLabelWithNumber(_highestScore, score);
         }

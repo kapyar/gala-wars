@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Currency;
+using Game;
 using Game.Enemy.Signals;
 using GameState.Combat;
 using Player.Boosters.Signals;
@@ -24,10 +25,13 @@ namespace Player
         private MutableCurrencyData _coinsBank;
         private MutableCurrencyData _experienceBank;
 
+        private readonly LeaderboardController _leaderboardController;
 
-        public PlayerStateController(IFileService fileService, SignalBus signalBus) : base(fileService)
+
+        public PlayerStateController(IFileService fileService, SignalBus signalBus, LeaderboardController leaderboardController) : base(fileService)
         {
             _signalBus = signalBus;
+            _leaderboardController = leaderboardController;
 
             LoadData();
             InitBank();
@@ -44,6 +48,8 @@ namespace Player
             {
                 _data.SetHighScore(_experienceBank.Amount);
             }
+
+            _leaderboardController.CheckAndSaveNewHighScore(_data.Name, _experienceBank.Amount);
 
             SaveData();
         }

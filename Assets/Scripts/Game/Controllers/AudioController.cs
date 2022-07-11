@@ -5,7 +5,7 @@ using UI.Overlay.Signals;
 using UnityEngine;
 using Zenject;
 
-namespace Game
+namespace Game.Controllers
 {
     public class AudioController : ITickable
     {

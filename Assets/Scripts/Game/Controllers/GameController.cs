@@ -11,7 +11,7 @@ using UI.WelcomeScreen.Signals;
 using UnityEngine;
 using Zenject;
 
-namespace Game
+namespace Game.Controllers
 {
     public class GameController : MonoBehaviour
     {

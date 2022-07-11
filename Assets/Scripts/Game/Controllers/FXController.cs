@@ -3,7 +3,7 @@ using GameState.Prefabs;
 using UnityEngine;
 using Zenject;
 
-namespace Game
+namespace Game.Controllers
 {
     public class FXController : MonoBehaviour
     {
