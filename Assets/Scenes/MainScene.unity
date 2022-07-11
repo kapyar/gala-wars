@@ -1912,7 +1912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _joystick: {fileID: 2016839173}
-  IsKeyboard: 1
+  IsKeyboard: 0
 --- !u!1 &1088725408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2820,28 +2820,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489993470}
   m_CullTransparentMesh: 1
---- !u!114 &1558575296 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6672047466663979284, guid: ea8c368fc91ea4f3b8d1152cdf2d4a42, type: 3}
-  m_PrefabInstance: {fileID: 3334494386805275191}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1558575297 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1736484251444189715, guid: ea8c368fc91ea4f3b8d1152cdf2d4a42, type: 3}
-  m_PrefabInstance: {fileID: 3334494386805275191}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1567984506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3488,11 +3466,11 @@ PrefabInstance:
     - target: {fileID: 3334494385785189788, guid: ea8c368fc91ea4f3b8d1152cdf2d4a42, type: 3}
       propertyPath: _animation
       value: 
-      objectReference: {fileID: 1558575296}
+      objectReference: {fileID: 0}
     - target: {fileID: 3334494385785189788, guid: ea8c368fc91ea4f3b8d1152cdf2d4a42, type: 3}
       propertyPath: _levelAnouncement
       value: 
-      objectReference: {fileID: 1558575297}
+      objectReference: {fileID: 0}
     - target: {fileID: 3334494385785189789, guid: ea8c368fc91ea4f3b8d1152cdf2d4a42, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
