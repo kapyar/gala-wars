@@ -4,7 +4,7 @@
 - Unity version `2021.3.5`
 - Zenject as DI.
 - All configuration are extracted into config files
-- For UI animation I used DOTWeen
+- For UI animation I used DOTween
 - Enemies and player are spawned in runtime
 - Data stored in json files `Application.persistentDataPath` check `AbstractSerializableController.cs`
 
