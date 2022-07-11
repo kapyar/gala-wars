@@ -11,6 +11,7 @@ using PlayerState;
 using Services.Files;
 using UI.GameOverController;
 using UI.Overlay;
+using UI.VictoryController;
 using UI.WelcomeScreen;
 using Zenject;
 
@@ -24,6 +25,7 @@ public class ProjectInstaller : MonoInstaller<ProjectInstaller>
         OverlayUIInstaller.Install(Container);
         GameOverUIInstaller.Install(Container);
         WelcomeScreenUIInstaller.Install(Container);
+        VictoryUIInstaller.Install(Container);
 
         PlayerStateInstaller.Install(Container);
         PlayerInputInstaller.Install(Container);

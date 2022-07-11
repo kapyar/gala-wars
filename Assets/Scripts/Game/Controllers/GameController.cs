@@ -10,6 +10,8 @@ using GameState.Prefabs;
 using GameState.Ships;
 using Player;
 using UI.EnterNameController.Signals;
+using UI.GameOverController.Signals;
+using UI.VictoryController.Signals;
 using UI.WelcomeScreen.Signals;
 using UnityEngine;
 using Zenject;
@@ -31,6 +33,9 @@ namespace Game.Controllers
 
         private Coroutine _loadLevelRoutine;
 
+        private List<GameObject> _spawnedEnemies = new List<GameObject>();
+        private GameObject _player;
+
 
         [Inject]
         public void Construct(SignalBus signalBus, PlayerStateController playerStateController,
@@ -49,9 +54,25 @@ namespace Game.Controllers
             _signalBus.Subscribe<SubmitNameSignal>(StartNewGame);
             _signalBus.Subscribe<LevelEndedSignal>(OnLevelEnded);
             _signalBus.Subscribe<PlayerDiedSignal>(OnPlayerDied);
+            _signalBus.Subscribe<QuitGameSignal>(OnQuitGame);
+            _signalBus.Subscribe<StartGameAfterCompleteSignal>(OnStartGameAfterComplete);
 
             _levelDtos = _gameStateController.GameStateDto.LevelDto;
 
+            _signalBus.Fire<StartGameSignal>();
+        }
+
+        private void OnStartGameAfterComplete(StartGameAfterCompleteSignal obj)
+        {
+            Destroy(_player);
+            _currentLevel = 0;
+
+            _signalBus.Fire<StartGameSignal>();
+        }
+
+        private void OnQuitGame(QuitGameSignal obj)
+        {
+            DestroyRemainingEnemies();
             _signalBus.Fire<StartGameSignal>();
         }
 
@@ -63,7 +84,7 @@ namespace Game.Controllers
             var controller = player.GetComponent<PlayerController>();
             controller.FromDto(dto);
 
-            Instantiate(player, _playerStartPoint.transform);
+            _player = Instantiate(player, _playerStartPoint.transform);
         }
 
         private void SpawnEnemy(EnemyShipDto dto)
@@ -73,7 +94,9 @@ namespace Game.Controllers
             var controller = enemy.GetComponent<EnemyController>();
             controller.FromDto(dto);
 
-            Instantiate(enemy, _enemySpawnPoint[Random.Range(0, _enemySpawnPoint.Count)].transform);
+            var enemyGo = Instantiate(enemy, _enemySpawnPoint[Random.Range(0, _enemySpawnPoint.Count)].transform);
+
+            _spawnedEnemies.Add(enemyGo);
         }
 
         private void StartNewGame(SubmitNameSignal signal)
@@ -99,11 +122,26 @@ namespace Game.Controllers
             {
                 _signalBus.Fire<GameLevelsCompleted>();
             }
+            else
+            {
+                _loadLevelRoutine = StartCoroutine(LoadLevelRoutine(_levelDtos[_currentLevel]));
+            }
         }
 
         private void OnPlayerDied(PlayerDiedSignal obj)
         {
             StopCoroutine(_loadLevelRoutine);
+        }
+
+        private void DestroyRemainingEnemies()
+        {
+            foreach (var enemy in _spawnedEnemies)
+            {
+                if (enemy != null)
+                {
+                    Destroy(enemy);
+                }
+            }
         }
 
         private IEnumerator LoadLevelRoutine(LevelDto levelDto)

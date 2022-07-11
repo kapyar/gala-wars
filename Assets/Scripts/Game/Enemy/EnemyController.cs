@@ -12,6 +12,7 @@ namespace Game.Enemy
 
         [SerializeField] private AbstractCombatSystem _combatSystem;
         [SerializeField] private EnemyShipDto _dto;
+        public EnemyShipDto Dto => _dto;
 
         [Inject]
         public void Construct(SignalBus signalBus)
