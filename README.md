@@ -18,6 +18,11 @@ You can configure Bullets, Ships, Level in Resources/GameStateScriptableInstalle
 - The Entry point of code is `ProjectInstaller`. 
 - Also in `Scripts/Game/Controllers` you will find main controllers of the game.
 
+# Input System
+ - To use joystick input select `IsKeyboard` off
+ <img width="664" alt="image" src="https://user-images.githubusercontent.com/6231331/178333662-bc976a22-827a-4c7d-bb2d-ec9126c6da80.png">
+- Joystick will appear once you press at the bottom left part of the screens
+
 # Movement System 
 You will find movement system under `Scripts/Game/Movement`. `AbstractMovementSystem` and `AbstractCombatSystem` are using State pattern. AI for enemies could be implemented in much more better way.
 
