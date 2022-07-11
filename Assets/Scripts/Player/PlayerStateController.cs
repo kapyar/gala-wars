@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using Currency;
 using Game;
+using Game.Controllers.Leaderboard;
 using Game.Enemy.Signals;
 using GameState.Combat;
 using Player.Boosters.Signals;

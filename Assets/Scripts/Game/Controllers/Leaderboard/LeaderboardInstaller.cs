@@ -1,3 +1,4 @@
+using Game.Controllers.Leaderboard;
 using Zenject;
 
 namespace Game

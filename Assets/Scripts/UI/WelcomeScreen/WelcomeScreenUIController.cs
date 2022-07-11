@@ -1,4 +1,5 @@
 using Game;
+using Game.Controllers.Leaderboard;
 using TMPro;
 using UI.EnterNameController.Signals;
 using UI.Helpers;

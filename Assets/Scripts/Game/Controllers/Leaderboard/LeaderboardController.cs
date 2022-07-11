@@ -1,8 +1,8 @@
-using Game.Data;
+using Game.Controllers.Leaderboard.Data;
 using Services;
 using Services.Files;
 
-namespace Game
+namespace Game.Controllers.Leaderboard
 {
     public class LeaderboardController : AbstractSerializableController<MutableLeaderboardData>
     {
