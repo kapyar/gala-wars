@@ -8,6 +8,7 @@ namespace Game.Enemy
         public override void InstallBindings()
         {
             Container.DeclareSignal<EnemyDeathSignal>();
+            Container.DeclareSignal<EnemyRewardDroppedSignal>();
         }
     }
 }

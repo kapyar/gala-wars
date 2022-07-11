@@ -1,4 +1,5 @@
 using Game.Combat;
+using Game.Combat.Bullet;
 using Game.Combat.States;
 using GameConfig;
 using GameState.Prefabs;
@@ -25,6 +26,7 @@ namespace Game.Player
         {
             SignalBus.Subscribe<PlayerPressShootBtnSignal>(OnPlayerPressShootBtn);
 
+            BulletOwner = BulletOwner.Player;
             _currentState = new StartPlayerCombatSystemState(this);
         }
 

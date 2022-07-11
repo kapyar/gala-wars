@@ -8,5 +8,12 @@ namespace GameState.Ships
     public class EnemyShipDto : PlayerShipDto
     {
         public List<RewardDto> RewardDto = new List<RewardDto>();
+
+        public void CopyTo(EnemyShipDto dto)
+        {
+            base.CopyTo(dto);
+
+            RewardDto = dto.RewardDto;
+        }
     }
 }

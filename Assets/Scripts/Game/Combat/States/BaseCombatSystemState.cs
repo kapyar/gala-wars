@@ -59,7 +59,7 @@ namespace Game.Combat.States
             var bullet = tmp.GetComponent<Bullet.Bullet>();
             bullet.FromDto(_context.GameStateController.GetBulletConfig(_bulletType));
 
-            bullet.Launch(go);
+            bullet.Launch(go, _context.BulletOwner);
         }
     }
 }

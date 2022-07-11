@@ -6,6 +6,8 @@ TagManager:
   tags:
   - WindowStartPos
   - BulletDestroyer
+  - PlayerBullet
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

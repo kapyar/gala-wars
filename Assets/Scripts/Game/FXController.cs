@@ -22,8 +22,10 @@ namespace Game
 
         private void OnEnemyDeathSignal(EnemyDeathSignal signal)
         {
+            Debug.Log("FXController OnEnemyDeathSignal");
+
             var death = _prefabsFactory.GetFX("Death");
-            Instantiate(death, signal.Transform, true);
+            Instantiate(death, signal.Transform);
         }
     }
 }

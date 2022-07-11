@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game.Enemy;
 using GameConfig;
 using GameState.Level;
 using GameState.Prefabs;
@@ -71,6 +72,9 @@ namespace Game
         private void SpawnEnemy(EnemyShipDto dto)
         {
             var enemy = _prefabsFactory.GetShip(dto.Id);
+
+            var controller = enemy.GetComponent<EnemyController>();
+            controller.FromDto(dto);
 
             Instantiate(enemy, _enemySpawnPoint.transform);
         }

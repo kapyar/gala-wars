@@ -1,4 +1,5 @@
 using Game.Combat;
+using Game.Combat.Bullet;
 using Game.Combat.States;
 using GameConfig;
 using GameState.Prefabs;
@@ -16,6 +17,7 @@ namespace Game.Enemy
 
         private void Start()
         {
+            BulletOwner = BulletOwner.Enemy;
             _currentState = new BombCombatSystemState(this);
         }
 

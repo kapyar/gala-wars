@@ -9,5 +9,13 @@ namespace GameState.Ships
         public string Id;
         public float Speed;
         public CombatSystemType CombatSystemId;
+
+
+        public void CopyTo(PlayerShipDto dto)
+        {
+            Id = dto.Id;
+            Speed = dto.Speed;
+            CombatSystemId = dto.CombatSystemId;
+        }
     }
 }

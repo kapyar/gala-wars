@@ -12,8 +12,6 @@ namespace UI.Top
 {
     public class TopUIController : MonoBehaviour
     {
-        private const float CoinsSpeed = 10;
-
         [SerializeField] private BoosterUIController _boosterUIController;
         [SerializeField] private TextMeshProUGUI _coinsAmount;
         [SerializeField] private TextMeshProUGUI _experienceAmount;

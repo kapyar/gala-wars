@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 8113063938110129727}
   - component: {fileID: 8113063938110129726}
   - component: {fileID: -6621760610704840328}
+  - component: {fileID: -4465631432394753702}
   m_Layer: 7
   m_Name: EnemyFighter
   m_TagString: Untagged
@@ -291,7 +292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8113063938110226533}
   m_LocalRotation: {x: 0, y: -0.70710677, z: 0.70710677, w: 0}
-  m_LocalPosition: {x: 1.12, y: -2.144, z: 0.15367858}
+  m_LocalPosition: {x: 1.12, y: -2.144, z: 0}
   m_LocalScale: {x: 0.16642132, y: 0.16642132, z: 0.16642132}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -379,6 +380,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _containerSource: 0
+--- !u!114 &-4465631432394753702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8113063938110226533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0107dcdc0e47d7a8fdbbc3c6192fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8113063938110226535
 GameObject:
   m_ObjectHideFlags: 0

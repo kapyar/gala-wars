@@ -29,8 +29,10 @@ namespace Game.Combat.Bullet
             _damage = dto.Damage;
         }
 
-        public void Launch(GameObject spawnPoint)
+        public void Launch(GameObject spawnPoint, BulletOwner bulletOwner)
         {
+            gameObject.tag = bulletOwner == BulletOwner.Enemy ? "EnemyBullet" : "PlayerBullet";
+
             RG.velocity = spawnPoint.transform.forward * _speed;
         }
     }

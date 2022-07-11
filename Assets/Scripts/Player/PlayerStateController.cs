@@ -1,5 +1,7 @@
+using System;
 using System.Linq;
 using Currency;
+using Game.Enemy.Signals;
 using GameState.Combat;
 using Player.Boosters.Signals;
 using Player.Data;
@@ -7,8 +9,8 @@ using Player.Signals;
 using Services;
 using Services.Files;
 using UI.EnterNameController.Signals;
-using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace Player
 {
@@ -31,8 +33,10 @@ namespace Player
             InitBank();
 
             _signalBus.Subscribe<SubmitNameSignal>(OnNameSubmitted);
+            _signalBus.Subscribe<EnemyRewardDroppedSignal>(OnRewardDropped);
             _signalBus.Subscribe<SaveDataSignal>(OnSaveData);
         }
+
 
         private void OnSaveData(SaveDataSignal signal)
         {
@@ -64,6 +68,21 @@ namespace Player
 
             _experienceBank = _data.Bank.FirstOrDefault(x => x.Id == CurrencyType.Experience);
             _experienceBank.OnAmountChanged += OnExperienceBalanceChanged;
+        }
+
+        private void OnRewardDropped(EnemyRewardDroppedSignal signal)
+        {
+            switch (signal.Type)
+            {
+                case CurrencyType.Coins:
+                    _coinsBank.SetAmount(_coinsBank.Amount + signal.Amount);
+                    break;
+                case CurrencyType.Experience:
+                    _experienceBank.SetAmount(_experienceBank.Amount + signal.Amount);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
 

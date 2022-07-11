@@ -1,3 +1,4 @@
+using Game.Combat.Bullet;
 using Game.Combat.States;
 using GameConfig;
 using GameState.Prefabs;
@@ -17,6 +18,7 @@ namespace Game.Combat
 
         protected BaseCombatSystemState _currentState;
 
+        public BulletOwner BulletOwner { get; protected set; }
 
         protected void Construct(SignalBus signalBus,
             GameStateController gameStateController, PrefabsFactory prefabsFactory)

@@ -28,5 +28,5 @@ MonoBehaviour:
     - Id: EnemyFighter
       Prefab: {fileID: 8113063938110226533, guid: caef9da9fab724fb381cb742418e6344, type: 3}
     FxDto:
-    - Id: Dead
+    - Id: Death
       Prefab: {fileID: 158308, guid: 96a96c08c36361544affb3c783e0056e, type: 3}

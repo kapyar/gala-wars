@@ -69,11 +69,11 @@ MonoBehaviour:
     - Name: First
       WaveDto:
       - EnemyShip: EnemyFighter
-        Delay: 1
+        Delay: 5
       - EnemyShip: EnemyFighter
-        Delay: 1
+        Delay: 6
       - EnemyShip: EnemyBomber
-        Delay: 1
+        Delay: 5
     - Name: Second
       WaveDto:
       - EnemyShip: EnemyBomber
