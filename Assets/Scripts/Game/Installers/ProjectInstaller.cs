@@ -1,10 +1,11 @@
 using Game;
 using Game.Combat;
 using Game.Controllers;
+using Game.Controllers.Level;
 using Game.Enemy;
+using Game.Player;
 using GameConfig;
 using GameState.Prefabs;
-using Player;
 using PlayerInput;
 using PlayerState;
 using Services.Files;
@@ -24,12 +25,14 @@ public class ProjectInstaller : MonoInstaller<ProjectInstaller>
         GameOverUIInstaller.Install(Container);
         WelcomeScreenUIInstaller.Install(Container);
 
-        PlayerInstaller.Install(Container);
+        PlayerStateInstaller.Install(Container);
         PlayerInputInstaller.Install(Container);
 
         CombatSystemInstaller.Install(Container);
 
         EnemyInstaller.Install(Container);
+        PlayerInstaller.Install(Container);
+        LevelInstaller.Install(Container);
 
         LeaderboardInstaller.Install(Container);
 

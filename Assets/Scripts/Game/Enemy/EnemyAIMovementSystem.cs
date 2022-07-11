@@ -16,10 +16,10 @@ namespace Game.Enemy
             _currentState = new MovementMoveState(this);
 
             var sequence = DOTween.Sequence();
-            sequence.Append(DOTween.To(() => Direction, x => Direction = x, new Vector2(0, 1), 1));
-            sequence.Append(DOTween.To(() => Direction, x => Direction = x, new Vector2(-1, -1), 1));
-            sequence.Append(DOTween.To(() => Direction, x => Direction = x, new Vector2(-1, 1), 1));
-            sequence.Append(DOTween.To(() => Direction, x => Direction = x, new Vector2(1, 1), 1));
+            sequence.Append(DOTween.To(() => Direction, x => Direction = x, new Vector2(0, 1), Random.Range(0.3f, 1)));
+            sequence.Append(DOTween.To(() => Direction, x => Direction = x, new Vector2(-1, -1), Random.Range(0.3f, 1)));
+            sequence.Append(DOTween.To(() => Direction, x => Direction = x, new Vector2(-1, 1), Random.Range(0.3f, 1)));
+            sequence.Append(DOTween.To(() => Direction, x => Direction = x, new Vector2(1, 1), Random.Range(0.3f, 1)));
             sequence.SetLoops(5);
         }
 

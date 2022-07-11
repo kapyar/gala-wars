@@ -5,7 +5,7 @@ using Zenject;
 
 namespace PlayerState
 {
-    public class PlayerInstaller : Installer<PlayerInstaller>
+    public class PlayerStateInstaller : Installer<PlayerStateInstaller>
     {
         public override void InstallBindings()
         {
