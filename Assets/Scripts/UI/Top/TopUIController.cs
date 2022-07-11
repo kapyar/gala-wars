@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using Currency;
-using DG.Tweening;
 using Game.Controllers.Level.Signals;
 using Player;
 using PlayerState.Boosters.Signals;
@@ -17,7 +16,6 @@ namespace UI.Top
         [SerializeField] private BoosterUIController _boosterUIController;
         [SerializeField] private TextMeshProUGUI _coinsAmount;
         [SerializeField] private TextMeshProUGUI _experienceAmount;
-        [SerializeField] private TextMeshProUGUI _levelAnouncement;
 
         [Inject] private SignalBus _signalBus;
         [Inject] private PlayerStateController _playerStateController;
