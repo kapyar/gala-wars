@@ -28,7 +28,7 @@ namespace GameConfig
             return GameStateDto.CombatSystemDto.FirstOrDefault(x => x.Id == id);
         }
 
-        public PlayerShipDto GetPlayerShipConfig()
+        public ShipDto GetPlayerShipConfig()
         {
             return GameStateDto.PlayerShipsDto.FirstOrDefault(x => x.Id == _playerStateController.PlayerData.ShipId);
         }

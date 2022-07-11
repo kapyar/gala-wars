@@ -16,8 +16,7 @@ namespace Game.Movement.States
         {
             var direction = Vector3.up * _context.Direction.y + Vector3.right * _context.Direction.x;
 
-            //TODO yk get config by name
-            _context.Rigidbody.velocity = direction * _context.GameStateController.GetPlayerShipConfig().Speed;
+            _context.Rigidbody.velocity = direction * _context.GetDto().Speed;
 
             _context.Rigidbody.position = new Vector3(
                 Mathf.Clamp(_context.Rigidbody.position.x, _context.Bounds.xMin, _context.Bounds.xMax),
@@ -26,7 +25,7 @@ namespace Game.Movement.States
             );
 
             var x = 90;
-            if (_context.GetName().Equals("Player"))
+            if (_context.GetDto().Id.Equals(_context.PlayerStateController.PlayerData.ShipId))
             {
                 x = -x;
             }

@@ -1,7 +1,7 @@
 using DG.Tweening;
 using Game.Movement;
 using Game.Movement.States;
-using GameConfig;
+using Player;
 using UnityEngine;
 using Zenject;
 
@@ -24,15 +24,10 @@ namespace Game.Enemy
         }
 
 
-        public override string GetName()
-        {
-            return "Enemy";
-        }
-
         [Inject]
-        public void Construct(SignalBus signalBus, GameStateController gameStateController)
+        public void Construct(SignalBus signalBus, PlayerStateController playerStateController)
         {
-            base.Construct(signalBus, gameStateController);
+            base.Construct(signalBus, playerStateController);
         }
     }
 }

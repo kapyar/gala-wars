@@ -1,4 +1,3 @@
-using System;
 using Game.Combat;
 using Game.Player.Signals;
 using GameState.Ships;
@@ -7,11 +6,11 @@ using Zenject;
 
 namespace Game.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : AbstractShipController
     {
         private SignalBus _signalBus;
 
-        [SerializeField] private PlayerShipDto _dto;
+        [SerializeField] private ShipDto _dto;
         [SerializeField] private AbstractCombatSystem _combatSystem;
 
 
@@ -26,7 +25,7 @@ namespace Game.Player
             _combatSystem.SetState(_dto.CombatSystemId);
         }
 
-        public void FromDto(PlayerShipDto dto)
+        public void FromDto(ShipDto dto)
         {
             _dto = dto;
         }
@@ -52,6 +51,11 @@ namespace Game.Player
 
             Destroy(other.gameObject);
             Destroy(gameObject);
+        }
+
+        public override ShipDto GetShipDto()
+        {
+            return _dto;
         }
     }
 }

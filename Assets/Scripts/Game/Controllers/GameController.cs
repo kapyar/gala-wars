@@ -77,7 +77,7 @@ namespace Game.Controllers
         }
 
 
-        public void SpawnPlayer(PlayerShipDto dto)
+        public void SpawnPlayer(ShipDto dto)
         {
             var player = _prefabsFactory.GetShip(_playerStateController.PlayerData.ShipId);
 

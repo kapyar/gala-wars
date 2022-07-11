@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 2537017348139003849}
+  _shipController: {fileID: 8191811909984205752}
   _meshRenderer: {fileID: 4363052829793252978}
   _tiltFactor: 8
 --- !u!114 &9110963051950393340
@@ -397,7 +398,7 @@ MonoBehaviour:
   _dto:
     Id: Eagle
     Speed: 5
-    CombatSystemId: 1
+    CombatSystemId: 3
   _combatSystem: {fileID: 9110963051950393340}
 --- !u!54 &2537017348139003849
 Rigidbody:

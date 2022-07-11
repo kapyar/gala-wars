@@ -1,7 +1,6 @@
 using Game.Movement;
 using Game.Movement.States;
 using Game.Player.Signals;
-using GameConfig;
 using Player;
 using PlayerInput.Signals;
 using Zenject;
@@ -13,16 +12,9 @@ namespace Game.Player
         private PlayerStateController PlayerStateController { get; set; }
 
         [Inject]
-        public void Construct(SignalBus signalBus, GameStateController gameStateController, PlayerStateController playerStateController)
+        public void Construct(SignalBus signalBus, PlayerStateController playerStateController)
         {
-            base.Construct(signalBus, gameStateController);
-
-            PlayerStateController = playerStateController;
-        }
-
-        public override string GetName()
-        {
-            return "Player";
+            base.Construct(signalBus, playerStateController);
         }
 
         protected virtual void Start()

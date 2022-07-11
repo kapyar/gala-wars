@@ -337,6 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8113063938110129726}
+  _shipController: {fileID: -4465631432394753702}
   _meshRenderer: {fileID: 8113063938112167585}
   _tiltFactor: 7
 --- !u!114 &8113063938110129727
@@ -395,9 +396,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _combatSystem: {fileID: 8113063938110129727}
   _dto:
-    Id: 
-    Speed: 0
-    CombatSystemId: 0
+    Id: EnemyFighter
+    Speed: 7
+    CombatSystemId: 3
     RewardDto: []
 --- !u!65 &4863543334666133414
 BoxCollider:

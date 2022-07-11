@@ -6,7 +6,8 @@ using Zenject;
 
 namespace Game.Enemy
 {
-    public class EnemyController : MonoBehaviour
+    public class EnemyController : AbstractShipController
+
     {
         private SignalBus _signalBus;
 
@@ -68,6 +69,11 @@ namespace Game.Enemy
 
             Destroy(other.gameObject);
             Destroy(gameObject);
+        }
+
+        public override ShipDto GetShipDto()
+        {
+            return _dto;
         }
     }
 }
