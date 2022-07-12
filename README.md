@@ -1,5 +1,8 @@
 # gala-wars
 
+# Demo 
+https://youtu.be/s0tQioJX3Yo
+
 # General
 - Unity version `2021.3.5`
 - Zenject as DI.
